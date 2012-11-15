@@ -1,10 +1,11 @@
 package es.iessaladillo.pedrojoya.psp05;
 
+
 public class Productor extends Thread {
 
 	// Variables miembro.
 	private Almacen almacen;
-	private int contador;
+	int contador = 0;
 
 	// Constructor.
 	public Productor(Almacen almacen) {
@@ -12,19 +13,17 @@ public class Productor extends Thread {
 		super();
 		// Almaceno una copia de los parámetros del constructor.
 		this.almacen = almacen;
-		contador = 0;
 	}
 
-	// Método que ejecuta el hilo.
+	// Método que ejecuta el hilo. 
 	@Override
 	public void run() {
-		Object elemento;
+		Integer elemento;
 		// Produzco un elemento y lo guardo en el almacén.
-		for (;;) {
-			elemento = producir();
-			almacen.meter(elemento);
+		while (true) {
 			try {
-				this.sleep(100);
+				elemento = producir();
+				almacen.meter(elemento);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -33,9 +32,8 @@ public class Productor extends Thread {
 	}
 
 	// Produce un nuevo elemento
-	private Object producir() {
-		String elemento = "elemento " + contador;
-		contador++;
+	private Integer producir() {
+		Integer elemento = new Integer(contador++);
 		System.out.println("Producido: " + elemento);
 		return elemento;
 	}
