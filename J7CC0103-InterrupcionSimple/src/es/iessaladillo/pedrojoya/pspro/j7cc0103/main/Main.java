@@ -1,6 +1,5 @@
 package es.iessaladillo.pedrojoya.pspro.j7cc0103.main;
 
-import java.util.concurrent.TimeUnit;
 import es.iessaladillo.pedrojoya.pspro.j7cc0103.tarea.GeneradorPrimos;
 
 public class Main {
