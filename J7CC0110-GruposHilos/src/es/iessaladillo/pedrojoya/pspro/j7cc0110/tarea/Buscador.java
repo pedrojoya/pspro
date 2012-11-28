@@ -35,7 +35,7 @@ public class Buscador implements Runnable {
 	/**
 	 * Simula la operación de búsqueda durmiendo durante un número aleatorio 
 	 * de segundos (como máximo 30)
-	 * @throws InterruptedException Throws this exception if the Thread is interrupted
+	 * @throws InterruptedException Si el hilo es interrumpido
 	 */
 	private void buscar() throws InterruptedException {
 		// Obtengo aleatoriamente el número de segundos que va a dormir el hilo.
