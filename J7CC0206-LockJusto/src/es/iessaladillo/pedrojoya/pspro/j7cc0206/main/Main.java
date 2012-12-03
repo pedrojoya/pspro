@@ -1,7 +1,7 @@
-package es.iessaladillo.pedrojoya.pspro.j7cc0204.main;
+package es.iessaladillo.pedrojoya.pspro.j7cc0206.main;
 
-import es.iessaladillo.pedrojoya.pspro.j7cc0204.tarea.Trabajo;
-import es.iessaladillo.pedrojoya.pspro.j7cc0204.tarea.Impresora;
+import es.iessaladillo.pedrojoya.pspro.j7cc0206.tarea.Impresora;
+import es.iessaladillo.pedrojoya.pspro.j7cc0206.tarea.Trabajo;
 
 public class Main {
 
@@ -14,9 +14,16 @@ public class Main {
             hilos[i] = new Thread(new Trabajo(impresora), "Trabajo " + i);
         }
         // Lo hago en dos bucles distintos para que se
-        // lance la ejecución de todos a la vez.
+        // lance la ejecución de todos con un intervalo
+        // de 1 décima entre uno y otro, para dar tiempo
+        // a que soliciten el cerrojo en orden.
         for (int i = 0; i < 10; i++){
             hilos[i].start();
+            try {
+				Thread.sleep(100);
+			} catch (InterruptedException e) {
+				e.printStackTrace();
+			}
         }
     }
 
