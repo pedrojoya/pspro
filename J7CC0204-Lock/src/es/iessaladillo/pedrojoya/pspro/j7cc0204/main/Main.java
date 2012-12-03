@@ -12,10 +12,6 @@ public class Main {
         Thread hilos[]= new Thread[10];
         for (int i = 0; i < 10; i++){
             hilos[i] = new Thread(new Trabajo(impresora), "Trabajo " + i);
-        }
-        // Lo hago en dos bucles distintos para que se
-        // lance la ejecución de todos a la vez.
-        for (int i = 0; i < 10; i++){
             hilos[i].start();
         }
     }
