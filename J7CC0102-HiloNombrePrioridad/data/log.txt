@@ -1,0 +1,131 @@
+*******************************************************************
+Hilo 0 - Estado: NEW
+Hilo 1 - Estado: NEW
+Hilo 2 - Estado: NEW
+Hilo 3 - Estado: NEW
+Hilo 4 - Estado: NEW
+Hilo 5 - Estado: NEW
+Hilo 6 - Estado: NEW
+Hilo 7 - Estado: NEW
+Hilo 8 - Estado: NEW
+Hilo 9 - Estado: NEW
+*******************************************************************
+Hilo 0 - Id: 8
+Hilo 0 - Prioridad: 10
+Hilo 0 - Estado anterior: NEW
+Hilo 0 - Estado actual: RUNNABLE
+*******************************************************************
+*******************************************************************
+Hilo 1 - Id: 9
+Hilo 1 - Prioridad: 1
+Hilo 1 - Estado anterior: NEW
+Hilo 1 - Estado actual: RUNNABLE
+*******************************************************************
+*******************************************************************
+Hilo 2 - Id: 10
+Hilo 2 - Prioridad: 10
+Hilo 2 - Estado anterior: NEW
+Hilo 2 - Estado actual: RUNNABLE
+*******************************************************************
+*******************************************************************
+Hilo 3 - Id: 11
+Hilo 3 - Prioridad: 1
+Hilo 3 - Estado anterior: NEW
+Hilo 3 - Estado actual: RUNNABLE
+*******************************************************************
+*******************************************************************
+Hilo 4 - Id: 12
+Hilo 4 - Prioridad: 10
+Hilo 4 - Estado anterior: NEW
+Hilo 4 - Estado actual: RUNNABLE
+*******************************************************************
+*******************************************************************
+Hilo 5 - Id: 13
+Hilo 5 - Prioridad: 1
+Hilo 5 - Estado anterior: NEW
+Hilo 5 - Estado actual: RUNNABLE
+*******************************************************************
+*******************************************************************
+Hilo 6 - Id: 14
+Hilo 6 - Prioridad: 10
+Hilo 6 - Estado anterior: NEW
+Hilo 6 - Estado actual: RUNNABLE
+*******************************************************************
+*******************************************************************
+Hilo 7 - Id: 15
+Hilo 7 - Prioridad: 1
+Hilo 7 - Estado anterior: NEW
+Hilo 7 - Estado actual: RUNNABLE
+*******************************************************************
+*******************************************************************
+Hilo 8 - Id: 16
+Hilo 8 - Prioridad: 10
+Hilo 8 - Estado anterior: NEW
+Hilo 8 - Estado actual: RUNNABLE
+*******************************************************************
+*******************************************************************
+Hilo 9 - Id: 17
+Hilo 9 - Prioridad: 1
+Hilo 9 - Estado anterior: NEW
+Hilo 9 - Estado actual: RUNNABLE
+*******************************************************************
+*******************************************************************
+Hilo 0 - Id: 8
+Hilo 0 - Prioridad: 10
+Hilo 0 - Estado anterior: RUNNABLE
+Hilo 0 - Estado actual: TERMINATED
+*******************************************************************
+*******************************************************************
+Hilo 2 - Id: 10
+Hilo 2 - Prioridad: 10
+Hilo 2 - Estado anterior: RUNNABLE
+Hilo 2 - Estado actual: TERMINATED
+*******************************************************************
+*******************************************************************
+Hilo 4 - Id: 12
+Hilo 4 - Prioridad: 10
+Hilo 4 - Estado anterior: RUNNABLE
+Hilo 4 - Estado actual: TERMINATED
+*******************************************************************
+*******************************************************************
+Hilo 6 - Id: 14
+Hilo 6 - Prioridad: 10
+Hilo 6 - Estado anterior: RUNNABLE
+Hilo 6 - Estado actual: TERMINATED
+*******************************************************************
+*******************************************************************
+Hilo 8 - Id: 16
+Hilo 8 - Prioridad: 10
+Hilo 8 - Estado anterior: RUNNABLE
+Hilo 8 - Estado actual: TERMINATED
+*******************************************************************
+*******************************************************************
+Hilo 1 - Id: 9
+Hilo 1 - Prioridad: 1
+Hilo 1 - Estado anterior: RUNNABLE
+Hilo 1 - Estado actual: TERMINATED
+*******************************************************************
+*******************************************************************
+Hilo 3 - Id: 11
+Hilo 3 - Prioridad: 1
+Hilo 3 - Estado anterior: RUNNABLE
+Hilo 3 - Estado actual: TERMINATED
+*******************************************************************
+*******************************************************************
+Hilo 5 - Id: 13
+Hilo 5 - Prioridad: 1
+Hilo 5 - Estado anterior: RUNNABLE
+Hilo 5 - Estado actual: TERMINATED
+*******************************************************************
+*******************************************************************
+Hilo 7 - Id: 15
+Hilo 7 - Prioridad: 1
+Hilo 7 - Estado anterior: RUNNABLE
+Hilo 7 - Estado actual: TERMINATED
+*******************************************************************
+*******************************************************************
+Hilo 9 - Id: 17
+Hilo 9 - Prioridad: 1
+Hilo 9 - Estado anterior: RUNNABLE
+Hilo 9 - Estado actual: TERMINATED
+*******************************************************************
