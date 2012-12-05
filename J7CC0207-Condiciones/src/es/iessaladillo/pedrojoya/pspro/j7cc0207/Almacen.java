@@ -16,26 +16,26 @@ public class Almacen {
     private Condition hayElemento = cerrojo.newCondition();
     
     public void meter(Integer elemento) throws InterruptedException {
-    	// Obtengo el cerrojo.
-    	cerrojo.lock();
+        // Obtengo el cerrojo.
+        cerrojo.lock();
         try {
-			// Espero mientras esté lleno.
-			while (lista.size() >= LIMITE) {
-			    hayEspacio.await();
-			}
-			// Agrego el elemento al almacén.
-			lista.add(elemento);
-			// Informo.
-			System.out.println("Almacenado: " + elemento);
-			// Notifico por si hay algún consumidor esperando
-			// que haya algún elemento.
-			hayElemento.signalAll();
-		} catch (InterruptedException e) {
-			throw e;
-		} finally {
-	        // Libero el cerrojo.
-	        cerrojo.unlock();
-		}
+            // Espero mientras esté lleno.
+            while (lista.size() >= LIMITE) {
+                hayEspacio.await();
+            }
+            // Agrego el elemento al almacén.
+            lista.add(elemento);
+            // Informo.
+            System.out.println("Almacenado: " + elemento);
+            // Notifico por si hay algún consumidor esperando
+            // que haya algún elemento.
+            hayElemento.signalAll();
+        } catch (InterruptedException e) {
+            throw e;
+        } finally {
+            // Libero el cerrojo.
+            cerrojo.unlock();
+        }
     }
 
     public Integer sacar() throws InterruptedException {
@@ -57,11 +57,11 @@ public class Almacen {
             // Retorno el elemento extraído.
             return elemento;
         } catch (InterruptedException e) {
-			throw e;
-		} finally {
-	        // Libero el cerrojo.
-	        cerrojo.unlock();
-		}
+            throw e;
+        } finally {
+            // Libero el cerrojo.
+            cerrojo.unlock();
+        }
     }
 
 }
