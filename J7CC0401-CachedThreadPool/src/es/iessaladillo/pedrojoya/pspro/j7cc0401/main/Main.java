@@ -22,7 +22,7 @@ public class Main {
             }
         }
         // Finalizo el servidor
-        servidor.endServer();
+        servidor.apagarServidor();
     }
 
 }
