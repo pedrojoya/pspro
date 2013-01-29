@@ -1,49 +1,33 @@
 package es.iessaladillo.pedrojoya.pspro.j7cc0607.main;
 
-import es.iessaladillo.pedrojoya.pspro.j7cc0607.tarea.Account;
-import es.iessaladillo.pedrojoya.pspro.j7cc0607.tarea.Bank;
-import es.iessaladillo.pedrojoya.pspro.j7cc0607.tarea.Company;
+import es.iessaladillo.pedrojoya.pspro.j7cc0607.tarea.Cuenta;
+import es.iessaladillo.pedrojoya.pspro.j7cc0607.tarea.Banco;
+import es.iessaladillo.pedrojoya.pspro.j7cc0607.tarea.Empresa;
 
-
-/**
- * Main class of the example. It creates an account, a company and a bank
- * to work with the account. The final balance should be equal to the initial, but....
- *
- */
+// Crea una cuenta, una empresa y un banco para trabajar con la cuenta.
+// El saldo final debería ser igual que el inicial.
 public class Main {
 
-	/**
-	 * Main method of the example
-	 * @param args
-	 */
-	public static void main(String[] args) {
-		// Creates a new account ...
-		Account	account=new Account();
-		// an initialize its balance to 1000
-		account.setBalance(1000);
-		
-		// Creates a new Company and a Thread to run its task
-		Company	company=new Company(account);
-		Thread companyThread=new Thread(company);
-		// Creates a new Bank and a Thread to run its task
-		Bank bank=new Bank(account);
-		Thread bankThread=new Thread(bank);
-		
-		// Prints the initial balance
-		System.out.printf("Account : Initial Balance: %d\n",account.getBalance());
-		
-		// Starts the Threads
-		companyThread.start();
-		bankThread.start();
+    public static void main(String[] args) {
+        // Creo una cuenta con un saldo inicial de 1000 euros.
+        Cuenta cuenta = new Cuenta(1000L);
+        // Creo una nueva empresa y su hilo.
+        Thread hiloEmpresa = new Thread(new Empresa(cuenta));
+        // Creo un nuevo banco y su hilo.
+        Thread hiloBanco = new Thread(new Banco(cuenta));
+        // Muestro el saldo inicial
+        System.out.printf("Saldo inicial: %d\n", cuenta.getSaldo());
+        // Inicio los hilos y espero su finalización.
+        hiloBanco.start();
+        hiloEmpresa.start();
+        try {
+            hiloEmpresa.join();
+            hiloBanco.join();
+            // Muestro el saldo final.
+            System.out.printf("Saldo final: %d\n", cuenta.getSaldo());
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
-		try {
-			// Wait for the finalization of the Threads
-			companyThread.join();
-			bankThread.join();
-			// Print the final balance
-			System.out.printf("Account : Final Balance: %d\n",account.getBalance());
-		} catch (InterruptedException e) {
-			e.printStackTrace();
-		}
-	}
 }

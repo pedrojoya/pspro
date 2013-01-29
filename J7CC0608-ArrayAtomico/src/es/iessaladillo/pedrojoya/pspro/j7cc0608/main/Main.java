@@ -2,70 +2,50 @@ package es.iessaladillo.pedrojoya.pspro.j7cc0608.main;
 
 import java.util.concurrent.atomic.AtomicIntegerArray;
 
-import es.iessaladillo.pedrojoya.pspro.j7cc0608.tarea.Decrementer;
-import es.iessaladillo.pedrojoya.pspro.j7cc0608.tarea.Incrementer;
+import es.iessaladillo.pedrojoya.pspro.j7cc0608.tarea.Decremento;
+import es.iessaladillo.pedrojoya.pspro.j7cc0608.tarea.Incremento;
 
-/**
- * Main class of the example. Execute 100 incrementers and 100 decrementers
- * and checks that the results are the expected
- *
- */
+// Ejecuta 100 hilos que incrementan todos los valores del array
+// y 100 hilos que decrementan todos los valores del array.
 public class Main {
 
-	/**
-	 * @param args
-	 */
-	public static void main(String[] args) {
-
-		final int THREADS=100;
-		/**
-		 * Atomic array whose elements will be incremented and decremented
-		 */
-		AtomicIntegerArray vector=new AtomicIntegerArray(1000);
-		/*
-		 * An incrementer task
-		 */
-		Incrementer incrementer=new Incrementer(vector);
-		/*
-		 * A decrementer task
-		 */
-		Decrementer decrementer=new Decrementer(vector);
-		
-		/*
-		 * Create and execute 100 incrementer and 100 decrementer tasks
-		 */
-		Thread threadIncrementer[]=new Thread[THREADS];
-		Thread threadDecrementer[]=new Thread[THREADS];
-		for (int i=0; i<THREADS; i++) {
-			threadIncrementer[i]=new Thread(incrementer);
-			threadDecrementer[i]=new Thread(decrementer);
-			
-			threadIncrementer[i].start();
-			threadDecrementer[i].start();
-		}
-		
-		/*
-		 * Wait for the finalization of all the tasks
-		 */
-		for (int i=0; i<THREADS; i++) {
-			try {
-				threadIncrementer[i].join();
-				threadDecrementer[i].join();
-			} catch (InterruptedException e) {
-				e.printStackTrace();
-			}
-		}
-		
-		/*
-		 * Write the elements different from 0
-		 */
-		for (int i=0; i<vector.length(); i++) {
-			if (vector.get(i)!=0) {
-				System.out.println("Vector["+i+"] : "+vector.get(i));
-			}
-		}
-		
-		System.out.println("Main: End of the example");
-	}
+    public static void main(String[] args) {
+        // Constante de número de hilos.
+        final int NUM_HILOS = 100;
+        // Creo un array atómico de 1000 enteros.
+        AtomicIntegerArray array = new AtomicIntegerArray(1000);
+        // Creo una tarea de incremento y una de decremento.
+        Incremento incremento = new Incremento(array);
+        Decremento decremento = new Decremento(array);
+        // Creo e inicio 100 hilos de incremento y 100 de decremento.
+        Thread hilosIncremento[] = new Thread[NUM_HILOS];
+        Thread hilosDecremento[] = new Thread[NUM_HILOS];
+        for (int i = 0; i < NUM_HILOS; i++) {
+            hilosIncremento[i] = new Thread(incremento);
+            hilosDecremento[i] = new Thread(decremento);
+            hilosIncremento[i].start();
+            hilosDecremento[i].start();
+        }
+        // Espero la finalización de todos los hilos.
+        for (int i = 0; i < NUM_HILOS; i++) {
+            try {
+                hilosIncremento[i].join();
+                hilosDecremento[i].join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+        // Escribo los valores diferentes a 0 del array tras los cambios.
+        int valor;
+        int contador = 0;
+        for (int i = 0; i < array.length(); i++) {
+            valor = array.get(i);
+            if (valor != 0) {
+                contador++;
+                System.out.println("Array[" + i + "]: " + valor);
+            }
+        }
+        System.out.printf("Elementos distintos de 0: %d\n", contador);
+    }
 
 }

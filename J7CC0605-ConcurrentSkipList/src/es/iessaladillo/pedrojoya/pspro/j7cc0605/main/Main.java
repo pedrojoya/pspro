@@ -7,11 +7,6 @@ import java.util.concurrent.ConcurrentSkipListMap;
 import es.iessaladillo.pedrojoya.pspro.j7cc0605.tarea.Contacto;
 import es.iessaladillo.pedrojoya.pspro.j7cc0605.tarea.Tarea;
 
-/**
- * Main class of the example. It executes twenty-five tasks that store contacts
- * in the navigable map and then shows part of the content of that navigable map
- * 
- */
 // Ejecuta 26 tareas en sus correspondientes hilos que almacenan contactos
 // en un mapa. Posteriormente muestra parte de los contenidos del mapa.
 public class Main {
