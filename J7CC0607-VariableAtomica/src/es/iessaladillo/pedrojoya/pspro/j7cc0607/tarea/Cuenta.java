@@ -5,36 +5,36 @@ import java.util.concurrent.atomic.AtomicLong;
 // Simula una cuenta bancaria.
 public class Cuenta {
 
-    // Propiedades.
-    private AtomicLong saldo;
+	// Propiedades.
+	private AtomicLong saldo;
 
-    // Constructores.
-    public Cuenta() {
-        saldo = new AtomicLong();
-    }
+	// Constructores.
+	public Cuenta() {
+		saldo = new AtomicLong();
+	}
 
-    public Cuenta(Long saldoInicial) {
-        this();
-        saldo.set(saldoInicial);
-    }
+	public Cuenta(Long saldoInicial) {
+		this();
+		saldo.set(saldoInicial);
+	}
 
-    // Getters y Setters.
-    public long getSaldo() {
-        return saldo.get();
-    }
+	// Getters y Setters.
+	public long getSaldo() {
+		return saldo.get();
+	}
 
-    public void setSaldo(long nuevoSaldo) {
-        saldo.set(nuevoSaldo);
-    }
+	public void setSaldo(long nuevoSaldo) {
+		saldo.set(nuevoSaldo);
+	}
 
-    // Hace un abono en cuenta. Recibe la cantidad.
-    public void abonar(long cantidad) {
-        saldo.getAndAdd(cantidad);
-    }
+	// Hace un abono en cuenta. Recibe la cantidad.
+	public void abonar(long cantidad) {
+		saldo.getAndAdd(cantidad);
+	}
 
-    // Hace un cargo en cuenta. Recibe la cantidad.
-    public void cargar(long cantidad) {
-        saldo.getAndAdd(-cantidad);
-    }
+	// Hace un cargo en cuenta. Recibe la cantidad.
+	public void cargar(long cantidad) {
+		saldo.getAndAdd(-cantidad);
+	}
 
 }

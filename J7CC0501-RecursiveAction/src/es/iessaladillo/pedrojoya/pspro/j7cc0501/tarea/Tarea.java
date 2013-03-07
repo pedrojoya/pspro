@@ -37,7 +37,8 @@ public class Tarea extends RecursiveAction {
 		} else {
 			// Parto por la mitad la lista.
 			int mitad = (hasta + desde) / 2;
-//			System.out.printf("Tareas pendientes: %s\n", getQueuedTaskCount());
+			// System.out.printf("Tareas pendientes: %s\n",
+			// getQueuedTaskCount());
 			System.out.printf("[%d,%d) descompuesta en [%d,%d) y [%d,%d)\n",
 					desde, hasta, desde, mitad + 1, mitad + 1, hasta);
 			// Creo dos subtareas asignándoles la mitad de los índices.

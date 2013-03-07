@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.concurrent.ForkJoinPool;
 import java.util.concurrent.TimeUnit;
 
-import es.iessaladillo.pedrojoya.pspro.j7cc0501.tarea.Producto;
 import es.iessaladillo.pedrojoya.pspro.j7cc0501.tarea.Generador;
+import es.iessaladillo.pedrojoya.pspro.j7cc0501.tarea.Producto;
 import es.iessaladillo.pedrojoya.pspro.j7cc0501.tarea.Tarea;
 
 // Crea una lista de productos, un ejecutor ForkJoinPool y la tarea.
@@ -24,10 +24,12 @@ public class Main {
 		// Muestro información sobre el ejecutor hasta que la tarea haya
 		// concluido.
 		do {
-//			System.out.printf("Número de hilos: %d\n",
-//					ejecutor.getActiveThreadCount());
-//			System.out.printf("Robo de hilos: %d\n", ejecutor.getStealCount());
-//			System.out.printf("Paralelismo: %d\n", ejecutor.getParallelism());
+			// System.out.printf("Número de hilos: %d\n",
+			// ejecutor.getActiveThreadCount());
+			// System.out.printf("Robo de hilos: %d\n",
+			// ejecutor.getStealCount());
+			// System.out.printf("Paralelismo: %d\n",
+			// ejecutor.getParallelism());
 			// Duermo 5 milésimas.
 			try {
 				TimeUnit.MILLISECONDS.sleep(5);

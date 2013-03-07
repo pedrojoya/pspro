@@ -7,15 +7,14 @@ import es.iessaladillo.pedrojoya.pspro.j7cc0201b.tarea.Banco;
 import es.iessaladillo.pedrojoya.pspro.j7cc0201b.tarea.Cuenta;
 import es.iessaladillo.pedrojoya.pspro.j7cc0201b.tarea.Empresa;
 
-
 public class Main {
 
 	public static void main(String[] args) {
 		// Creo una nueva cuenta con un saldo inicial de 100 euros.
-		Cuenta	cuenta = new Cuenta(100);
+		Cuenta cuenta = new Cuenta(100);
 		SimpleDateFormat formateador = new SimpleDateFormat("HH:mm:ss");
-		System.out.printf("%s -> Saldo inicial: %f\n", 
-				formateador.format(new Date()), cuenta.getSaldo());		
+		System.out.printf("%s -> Saldo inicial: %f\n",
+				formateador.format(new Date()), cuenta.getSaldo());
 		// Creo un nuevo hilo para una nueva empresa.
 		Thread hiloEmpresa = new Thread(new Empresa(cuenta));
 		hiloEmpresa.start();
@@ -27,11 +26,11 @@ public class Main {
 			hiloEmpresa.join();
 			hiloBanco.join();
 			// Muestro el saldo final.
-			System.out.printf("%s -> Saldo final: %f\n", 
+			System.out.printf("%s -> Saldo final: %f\n",
 					formateador.format(new Date()), cuenta.getSaldo());
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
 	}
-	
+
 }

@@ -7,27 +7,27 @@ import java.util.concurrent.TimeUnit;
 // y retorna Hola Mundo
 public class Tarea implements Callable<String> {
 
-    private String nombre;
+	private String nombre;
 
-    // Constructor.
-    public Tarea(String nombre) {
-        this.nombre = nombre;
-    }
+	// Constructor.
+	public Tarea(String nombre) {
+		this.nombre = nombre;
+	}
 
-    @Override
-    public String call() throws Exception {
-        try {
-            Long duracion = (long) (Math.random() * 10);
-            System.out.printf("%s: Esperando %d segundos los resultados.\n",
-                    this.nombre, duracion);
-            TimeUnit.SECONDS.sleep(duracion);
-        } catch (InterruptedException e) {
-        }
-        return "Hola Mundo. Soy " + nombre;
-    }
+	@Override
+	public String call() throws Exception {
+		try {
+			Long duracion = (long) (Math.random() * 10);
+			System.out.printf("%s: Esperando %d segundos los resultados.\n",
+					this.nombre, duracion);
+			TimeUnit.SECONDS.sleep(duracion);
+		} catch (InterruptedException e) {
+		}
+		return "Hola Mundo. Soy " + nombre;
+	}
 
-    // Retorna el nombre de la tarea.
-    public String getNombre() {
-        return nombre;
-    }
+	// Retorna el nombre de la tarea.
+	public String getNombre() {
+		return nombre;
+	}
 }

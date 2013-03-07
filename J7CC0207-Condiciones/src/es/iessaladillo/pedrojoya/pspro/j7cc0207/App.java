@@ -2,12 +2,12 @@ package es.iessaladillo.pedrojoya.pspro.j7cc0207;
 
 public class App {
 
-    public static void main(String[] args) {
-        Almacen almacen = new Almacen();
-        Productor productor = new Productor(almacen);
-        Consumidor consumidor = new Consumidor(almacen);
-        productor.start();
-        consumidor.start();
-    }
+	public static void main(String[] args) {
+		Almacen almacen = new Almacen();
+		Productor productor = new Productor(almacen);
+		Consumidor consumidor = new Consumidor(almacen);
+		productor.start();
+		consumidor.start();
+	}
 
 }
