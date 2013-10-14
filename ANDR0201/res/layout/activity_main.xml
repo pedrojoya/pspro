@@ -1,0 +1,35 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    tools:context=".MainActivity"
+    tools:ignore="HardcodedText" >
+
+    <TextView
+        android:id="@+id/lblTiempo"
+        android:layout_width="210dp"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:layout_marginBottom="40dp"
+        android:gravity="center"
+        android:textSize="40sp"
+        android:text="00:00:00" />
+
+    <Button
+        android:id="@+id/btnIniciar"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblTiempo"
+        android:layout_marginRight="10dp"
+        android:text="@string/iniciar" />
+
+    <Button
+        android:id="@+id/btnParar"
+        android:layout_width="100dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/lblTiempo"
+        android:layout_toRightOf="@+id/btnIniciar"
+        android:text="@string/parar" />
+    
+</RelativeLayout>
