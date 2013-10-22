@@ -45,6 +45,7 @@ public class MainActivity extends Activity {
 
     private void mostrarBarras() {
         prbBarra.setVisibility(View.VISIBLE);
+        lblMensaje.setText(R.string.trabajando);
         lblMensaje.setVisibility(View.VISIBLE);
         prbCirculo.setVisibility(View.VISIBLE);
     }
@@ -53,8 +54,6 @@ public class MainActivity extends Activity {
     private void resetearVistas() {
         prbBarra.setVisibility(View.INVISIBLE);
         prbBarra.setProgress(0);
-        lblMensaje.setVisibility(View.INVISIBLE);
-        lblMensaje.setText(R.string.trabajando);
         prbCirculo.setVisibility(View.INVISIBLE);
         prbCirculo.setProgress(0);
     }
@@ -77,6 +76,7 @@ public class MainActivity extends Activity {
             // Crea y envía el mensaje de fin de ejecución al manejador.
             Message mensaje = new Message();
             mensaje.what = onPostExecute;
+            mensaje.arg1 = 10;
             manejador.sendMessage(mensaje);
         }
 
@@ -101,13 +101,16 @@ public class MainActivity extends Activity {
             switch (mensaje.what) {
             // Actualización barra.
             case onProgressUpdate:
-                int valor = mensaje.arg1;
-                lblMensaje.setText(getString(R.string.trabajando) + " " + valor
-                        + " de 10");
-                prbBarra.setProgress(valor);
+                int progreso = mensaje.arg1;
+                lblMensaje.setText(getString(R.string.trabajando) + " "
+                        + progreso + " de 10");
+                prbBarra.setProgress(progreso);
                 break;
             // Termina el hilo secundario.
             case onPostExecute:
+                int tareas = mensaje.arg1;
+                lblMensaje.setText(getString(R.string.realizadas) + " "
+                        + tareas + " " + getString(R.string.tareas));
                 resetearVistas();
                 break;
             }
@@ -116,18 +119,21 @@ public class MainActivity extends Activity {
     }
 
     /**
-     * Instances of static inner classes do not hold an implicit reference to
-     * their outer class.
+     * Para que no haya problemas de memoria, se debería crear la clase
+     * Manejador como clase estática. Dado que las clases internas estáticas no
+     * mantienen una referencia implícita a la clase exterior, será necesario
+     * pasarle al constructor del manejador la actividad, que será almacenada
+     * internamente en forma de WeakReference (referencia débil)
      * 
-     * private static class MyHandler extends Handler { private final
-     * WeakReference<SampleActivity> mActivity;
+     * private static class Manejador extends Handler {
      * 
-     * public MyHandler(SampleActivity activity) { mActivity = new
-     * WeakReference<SampleActivity>(activity); }
+     * private final WeakReference<SampleActivity> actividadDebil;
      * 
-     * @Override public void handleMessage(Message msg) { SampleActivity
-     *           activity = mActivity.get(); if (activity != null) { // ... } }
-     *           }
+     * public MyHandler(MainActivity actividad) { actividadDebil = new
+     * WeakReference<MainActivity>(actividad); }
+     * 
+     * @Override public void handleMessage(Message msg) { MainActivity actividad
+     *           = actividadDebil.get(); if (actividad != null) { // ... } } }
      **/
 
 }

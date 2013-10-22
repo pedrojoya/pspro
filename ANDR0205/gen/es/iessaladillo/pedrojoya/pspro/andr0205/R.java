@@ -5,7 +5,7 @@
  * should not be modified by hand.
  */
 
-package es.iessaladillo.pedrojoya.pspro.andr0204;
+package es.iessaladillo.pedrojoya.pspro.andr0205;
 
 public final class R {
     public static final class attr {
