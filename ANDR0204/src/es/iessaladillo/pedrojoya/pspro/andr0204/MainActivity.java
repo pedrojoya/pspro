@@ -11,8 +11,9 @@ import android.widget.TextView;
 public class MainActivity extends Activity {
 
     // Constantes (se definen con esos nombres para introducir las AsyncTasks.
-    protected static final int onProgressUpdate = 0;
-    protected static final int onPostExecute = 1;
+    protected static final int onPreExecute = 0;
+    protected static final int onProgressUpdate = 1;
+    protected static final int onPostExecute = 2;
 
     // Variables a nivel de clase.
     private ProgressBar prbBarra;
@@ -32,8 +33,6 @@ public class MainActivity extends Activity {
 
     // Cuando se hace click en btnIniciar.
     public void btnIniciarOnClick(View view) {
-        // Se hacen visibles las vistas para el progreso.
-        mostrarBarras();
         // Se crea el manejador.
         manejador = new Manejador();
         // Se crea la tarea secundaria.
@@ -43,6 +42,7 @@ public class MainActivity extends Activity {
         hiloSecundario.start();
     }
 
+    // Hace visibles las vistas relacionadas con el progreso.
     private void mostrarBarras() {
         prbBarra.setVisibility(View.VISIBLE);
         lblMensaje.setText(R.string.trabajando);
@@ -50,7 +50,14 @@ public class MainActivity extends Activity {
         prbCirculo.setVisibility(View.VISIBLE);
     }
 
-    // Resetea las vistas.
+    // Actualiza el valor de las barras de progreso.
+    private void actualizarBarras(int progreso) {
+        lblMensaje.setText(getString(R.string.trabajando) + " " + progreso
+                + " de 10");
+        prbBarra.setProgress(progreso);
+    }
+
+    // Resetea las vistas relacionadas con el progreso.
     private void resetearVistas() {
         prbBarra.setVisibility(View.INVISIBLE);
         prbBarra.setProgress(0);
@@ -63,21 +70,25 @@ public class MainActivity extends Activity {
 
         @Override
         public void run() {
+            // Crea y envía el mensaje de inicio de ejecución al manejador.
+            Message msgInicio = new Message();
+            msgInicio.what = onPreExecute;
+            manejador.sendMessage(msgInicio);
             // Se realizan diez pasos.
             for (int i = 0; i < 10; i++) {
                 // Se pone a trabajar.
                 trabajar();
                 // Crea y envía un mensaje de actualización al manejador.
-                Message mensaje = new Message();
-                mensaje.what = onProgressUpdate;
-                mensaje.arg1 = i + 1;
-                manejador.sendMessage(mensaje);
+                Message msgProgreso = new Message();
+                msgProgreso.what = onProgressUpdate;
+                msgProgreso.arg1 = i + 1;
+                manejador.sendMessage(msgProgreso);
             }
             // Crea y envía el mensaje de fin de ejecución al manejador.
-            Message mensaje = new Message();
-            mensaje.what = onPostExecute;
-            mensaje.arg1 = 10;
-            manejador.sendMessage(mensaje);
+            Message msgFin = new Message();
+            msgFin.what = onPostExecute;
+            msgFin.arg1 = 10;
+            manejador.sendMessage(msgFin);
         }
 
         // Simula un trabajo de 1 segundo.
@@ -99,15 +110,19 @@ public class MainActivity extends Activity {
         public void handleMessage(Message mensaje) {
             // Dependiendo del mensaje recibido.
             switch (mensaje.what) {
-            // Actualización barra.
+            // Mensaje de inicio del hilo secundario.
+            case onPreExecute:
+                // Se hacen visibles las vistas para el progreso.
+                mostrarBarras();
+                // Mensaje de progreso del hilo secundario.
             case onProgressUpdate:
+                // Se actualizan las barras.
                 int progreso = mensaje.arg1;
-                lblMensaje.setText(getString(R.string.trabajando) + " "
-                        + progreso + " de 10");
-                prbBarra.setProgress(progreso);
+                actualizarBarras(progreso);
                 break;
-            // Termina el hilo secundario.
+            // Mensaje de fin del hilo secundario.
             case onPostExecute:
+                // Se informa al usuario y se resetean las vistas.
                 int tareas = mensaje.arg1;
                 lblMensaje.setText(getString(R.string.realizadas) + " "
                         + tareas + " " + getString(R.string.tareas));
