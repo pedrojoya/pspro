@@ -114,7 +114,8 @@ public class MainActivity extends Activity {
             case onPreExecute:
                 // Se hacen visibles las vistas para el progreso.
                 mostrarBarras();
-                // Mensaje de progreso del hilo secundario.
+                break;
+            // Mensaje de progreso del hilo secundario.
             case onProgressUpdate:
                 // Se actualizan las barras.
                 int progreso = mensaje.arg1;
