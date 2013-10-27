@@ -1,24 +1,28 @@
-package es.iessaladillo.pedrojoya.pspro.gar0306;
+package es.iessaladillo.pedrojoya.pspro.gar0307;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Date;
-import java.util.List;
-import java.util.Map;
 
-public class LecturaCabeceraURLConnection {
+public class PostURLConnection {
 
     public static void main(String[] args) {
         try {
             // Se obtiene el objeto URL.
-            URL url = new URL("http://getbootstrap.com");
-            // Se abre la conexión y se hace a HttpURLConnection, ya que es una
-            // conexión HTTP.
+            URL url = new URL("http://www.informaticasaladillo.es/mostrar.php");
+            // Se abre la conexión.
             HttpURLConnection conexion = (HttpURLConnection) url
                     .openConnection();
-            // Se obtienen los datos de la cabecera y se muestran por pantalla.
-            // Campos con método get propio.
-            System.out.println("CAMPOS CON MÉTODO GET PROPIO\n");
+            // Se envían datos por el método POST.
+            conexion.setDoOutput(true);
+            PrintWriter escritor = new PrintWriter(conexion.getOutputStream());
+            String datos = "Nombre=Pedro&Apellido=Joya";
+            escritor.print(datos);
+            escritor.close();
+            // Se muestra la cabecera de la respuesta.
             System.out.println("Método de petición [getRequestMethod()]: "
                     + conexion.getRequestMethod());
             System.out.println("Fecha petición [getDate()]: "
@@ -38,19 +42,21 @@ public class LecturaCabeceraURLConnection {
                     + conexion.getContentLength());
             System.out.println("Fecha expiración [getExpiration()]: "
                     + new Date(conexion.getExpiration()));
-            // Todos los campos de la cabecera.
-            System.out
-                    .println("\nTODOS LOS CAMPOS DE LA CABECERA [getHeaderFields()]\n");
-            Map<String, List<String>> camposCabecera = conexion
-                    .getHeaderFields();
-            for (Map.Entry<String, List<String>> campo : camposCabecera
-                    .entrySet()) {
-                System.out.println(campo.getKey() + " : " + campo.getValue());
+            // Se obtiene la respuesta, se lee línea y línea y se escribe en la
+            // salida estándar.
+            BufferedReader lector = new BufferedReader(new InputStreamReader(
+                    conexion.getInputStream()));
+            String linea;
+            while ((linea = lector.readLine()) != null) {
+                System.out.println(linea);
             }
+            // Se cierra el lector.
+            lector.close();
         } catch (Exception e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+
     }
 
 }
