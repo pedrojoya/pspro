@@ -86,6 +86,7 @@ public class MainActivity extends Activity implements OnClickListener {
             this.milisegundos = milisegundos;
         }
 
+        @SuppressWarnings("unused")
         public Crono() {
             milisegundos = 0;
         }
