@@ -5,7 +5,8 @@ import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Date;
+import java.util.List;
+import java.util.Map;
 
 public class PostURLConnection {
 
@@ -16,6 +17,23 @@ public class PostURLConnection {
             // Se abre la conexión.
             HttpURLConnection conexion = (HttpURLConnection) url
                     .openConnection();
+            // Se establecen algunas propiedades de la cabecera de la petición.
+            conexion.setRequestMethod("POST");
+            conexion.addRequestProperty("Accept", "text/html");
+            conexion.setRequestProperty("User-Agent",
+                    "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 5.1)");
+            // Se obtienen los datos de la cabecera de la petición y se muestran
+            // por pantalla.
+            System.out.println("CABECERA DE LA PETICIÓN\n");
+            System.out.println("Método de petición [getRequestMethod()]: "
+                    + conexion.getRequestMethod());
+            Map<String, List<String>> cabeceraPeticion = conexion
+                    .getRequestProperties();
+            for (Map.Entry<String, List<String>> campoPeticion : cabeceraPeticion
+                    .entrySet()) {
+                System.out.println(campoPeticion.getKey() + " : "
+                        + campoPeticion.getValue());
+            }
             // Se envían datos por el método POST.
             conexion.setDoOutput(true);
             PrintWriter escritor = new PrintWriter(conexion.getOutputStream());
@@ -23,27 +41,17 @@ public class PostURLConnection {
             escritor.print(datos);
             escritor.close();
             // Se muestra la cabecera de la respuesta.
-            System.out.println("Método de petición [getRequestMethod()]: "
-                    + conexion.getRequestMethod());
-            System.out.println("Fecha petición [getDate()]: "
-                    + new Date(conexion.getDate()));
-            System.out.println("Código de respuesta [getResponseCode()]: "
-                    + conexion.getResponseCode());
-            System.out.println("Mensaje de respuesta [getResponseMessage()]: "
-                    + conexion.getResponseMessage());
-            System.out
-                    .println("Fecha última modificación [getLastModified()]: "
-                            + new Date(conexion.getLastModified()));
-            System.out.println("Tipo de contenido [getContentType()]: "
-                    + conexion.getContentType());
-            System.out.println("Codificación [getContentEncoding()]: "
-                    + conexion.getContentEncoding());
-            System.out.println("Tamaño del contenido [getContentLength()]: "
-                    + conexion.getContentLength());
-            System.out.println("Fecha expiración [getExpiration()]: "
-                    + new Date(conexion.getExpiration()));
+            System.out.println("\nCABECERA DE LA RESPUESTA\n");
+            Map<String, List<String>> cabeceraRespuesta = conexion
+                    .getHeaderFields();
+            for (Map.Entry<String, List<String>> campoRespuesta : cabeceraRespuesta
+                    .entrySet()) {
+                System.out.println(campoRespuesta.getKey() + " : "
+                        + campoRespuesta.getValue());
+            }
             // Se obtiene la respuesta, se lee línea y línea y se escribe en la
             // salida estándar.
+            System.out.println("\nCONTENIDO DE LA RESPUESTA\n");
             BufferedReader lector = new BufferedReader(new InputStreamReader(
                     conexion.getInputStream()));
             String linea;

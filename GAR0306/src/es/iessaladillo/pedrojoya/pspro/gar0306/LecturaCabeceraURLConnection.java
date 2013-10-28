@@ -16,8 +16,10 @@ public class LecturaCabeceraURLConnection {
             // conexión HTTP.
             HttpURLConnection conexion = (HttpURLConnection) url
                     .openConnection();
-            // Se obtienen los datos de la cabecera y se muestran por pantalla.
+            // Se obtienen los datos de la cabecera de la respuesta y se
+            // muestran por pantalla.
             // Campos con método get propio.
+            System.out.println("\nCABECERA DE LA RESPUESTA\n");
             System.out.println("CAMPOS CON MÉTODO GET PROPIO\n");
             System.out.println("Método de petición [getRequestMethod()]: "
                     + conexion.getRequestMethod());
@@ -40,10 +42,10 @@ public class LecturaCabeceraURLConnection {
                     + new Date(conexion.getExpiration()));
             // Todos los campos de la cabecera.
             System.out
-                    .println("\nTODOS LOS CAMPOS DE LA CABECERA [getHeaderFields()]\n");
-            Map<String, List<String>> camposCabecera = conexion
+                    .println("\nTODOS LOS CAMPOS DE LA CABECERA DE LA RESPUESTA [getHeaderFields()]\n");
+            Map<String, List<String>> cabeceraRespuesta = conexion
                     .getHeaderFields();
-            for (Map.Entry<String, List<String>> campo : camposCabecera
+            for (Map.Entry<String, List<String>> campo : cabeceraRespuesta
                     .entrySet()) {
                 System.out.println(campo.getKey() + " : " + campo.getValue());
             }
