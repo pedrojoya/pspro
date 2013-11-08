@@ -25,10 +25,10 @@ public class PruebaInetAddress {
         // Se obtiene y muestra la dirección de la máquina local a partir de
         // su nombre.
         try {
-            dir = InetAddress.getByName("ASUS2009");
-            System.out.println("ASUS2009: " + dir.toString());
-            System.out.println("Máquina de ASUS2009: " + dir.getHostName());
-            System.out.println("IP de ASUS2009: " + dir.getHostAddress());
+            dir = InetAddress.getByName("ASUS2013");
+            System.out.println("ASUS2013: " + dir.toString());
+            System.out.println("Máquina de ASUS2013: " + dir.getHostName());
+            System.out.println("IP de ASUS2013: " + dir.getHostAddress());
             System.out.println();
         } catch (UnknownHostException e) {
             e.printStackTrace();
@@ -71,8 +71,9 @@ public class PruebaInetAddress {
         // máquina a la que apunta el dominio de Google España.
         InetAddress[] direcciones;
         try {
-            direcciones = InetAddress.getAllByName("www.google.es");
-            System.out.println("Direcciones del dominio www.google.es: ");
+            direcciones = InetAddress.getAllByName("www.juntadeandalucia.es");
+            System.out
+                    .println("Direcciones del dominio www.juntadeandalucia.es: ");
             for (int i = 0; i < direcciones.length; i++) {
                 System.out.println("\t" + direcciones[i].toString());
             }
