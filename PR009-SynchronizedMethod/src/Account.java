@@ -17,7 +17,7 @@ public class Account {
     }
 
     // Try and remove synchronized keyword and see what happens.
-    public synchronized void debit(int amount) {
+    public synchronized void debit(float amount) {
         balance -= amount;
         System.out.print(".");
     }
