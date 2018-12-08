@@ -4,8 +4,13 @@ public class Bakery {
 
     private final LinkedTransferQueue<Integer> tray = new LinkedTransferQueue<>();
 
-    public void addToTray(Integer doughnut) throws InterruptedException {
+    public void addToTray(Integer doughnut) {
         System.out.printf("Producer puts doughnut #%d on the tray\n", doughnut);
+        tray.put(doughnut);
+    }
+
+    public void addToTrayAndBlock(Integer doughnut) throws InterruptedException {
+        System.out.printf("Producer puts doughnut #%d on the tray and waits to the consumer to extract it\n", doughnut);
         tray.transfer(doughnut);
     }
 

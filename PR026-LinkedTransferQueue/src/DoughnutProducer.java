@@ -22,7 +22,11 @@ public class DoughnutProducer implements Runnable {
                 return;
             }
             try {
-                bakery.addToTray(doughnut);
+                if (doughnut % 3 == 0) {
+                    bakery.addToTrayAndBlock(doughnut);
+                } else {
+                    bakery.addToTray(doughnut);
+                }
             } catch (InterruptedException e) {
                 System.out.println("Producer has been interrupted while adding a doughnut to the tray");
                 return;
@@ -32,7 +36,7 @@ public class DoughnutProducer implements Runnable {
     }
 
     private int makeDoughnut() throws InterruptedException {
-        Integer doughnut = ++doughnutNumber;
+        int doughnut = ++doughnutNumber;
         System.out.printf("Producer is making doughnut #%d\n", doughnut);
         TimeUnit.SECONDS.sleep(1);
         return doughnut;

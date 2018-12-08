@@ -32,7 +32,7 @@ public class DoughnutConsumer implements Runnable {
 
     private void eat(int doughnut) throws InterruptedException {
         System.out.printf("Consumer is eating doughnut #%d\n", doughnut);
-        TimeUnit.SECONDS.sleep(20);
+        TimeUnit.SECONDS.sleep(8);
     }
 
 }
