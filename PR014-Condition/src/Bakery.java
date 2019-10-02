@@ -20,7 +20,7 @@ public class Bakery {
             }
             tray.add(doughnut);
             System.out.printf("Producer puts doughnut #%d on the tray\n", doughnut);
-            isNotEmpty.signalAll();
+            isNotEmpty.signal();
         } finally {
             lock.unlock();
         }
@@ -36,7 +36,7 @@ public class Bakery {
             }
             doughnut = tray.remove(0);
             System.out.printf("Consumer extracts doughnut #%d from tray\n", doughnut);
-            isNotFull.signalAll();
+            isNotFull.signal();
             return doughnut;
         } finally {
             lock.unlock();
