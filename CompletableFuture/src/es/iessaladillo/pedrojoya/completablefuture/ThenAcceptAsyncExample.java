@@ -1,21 +1,19 @@
 package es.iessaladillo.pedrojoya.completablefuture;
 
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ExecutionException;
 
-public class ThenAcceptExample {
+public class ThenAcceptAsyncExample {
 
     public static void main(String[] args) {
-        new ThenAcceptExample().thenAcceptExample();
+        new ThenAcceptAsyncExample().thenAcceptAsyncExample();
     }
 
-    private void thenAcceptExample() {
-        CompletableFuture.supplyAsync(() ->
-                generateNumber()
-        ).thenAccept(value ->
-                printNumber(value)
-        );
+    private void thenAcceptAsyncExample() {
+        CompletableFuture<Void> cf =
+                CompletableFuture.supplyAsync(this::generateNumber)
+                        .thenAcceptAsync(this::printNumber);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
+        cf.join();
     }
 
     private int generateNumber() {
@@ -24,7 +22,7 @@ public class ThenAcceptExample {
     }
 
     private void printNumber(Integer generatedValue) {
-        System.out.printf("%s - Consumer - Generated: %d\n",
+        System.out.printf("%s - Consumer - %d\n",
                 Thread.currentThread().getName(), generatedValue);
     }
 

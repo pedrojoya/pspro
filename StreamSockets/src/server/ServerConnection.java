@@ -1,15 +1,19 @@
+package server;
+
+import message.Message;
+
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class ServerConnection implements Runnable {
+class ServerConnection implements Runnable {
 
     private final int connectionNumber;
     private final Socket socket;
 
-    public ServerConnection(int connectionNumber, Socket socket) {
+    ServerConnection(int connectionNumber, Socket socket) {
         this.connectionNumber = connectionNumber;
         this.socket = socket;
     }
@@ -24,9 +28,9 @@ public class ServerConnection implements Runnable {
                 sendConfirmationMessage(output, receivedMessage);
             }
         } catch (IOException e) {
-            System.out.printf("Server: connection #%d closed\n", connectionNumber);
+            showConnectionClosed();
         } catch (ClassNotFoundException e) {
-            System.out.printf("Server: Can't read message in connection #%d\n", connectionNumber);
+            showMessageFormatError();
         } catch (InterruptedException ignored) {
         }
     }
@@ -42,6 +46,14 @@ public class ServerConnection implements Runnable {
     private void sendConfirmationMessage(ObjectOutputStream output, Message message) throws IOException, InterruptedException {
         Thread.sleep(ThreadLocalRandom.current().nextInt(1, 10) * 1000);
         output.writeObject(new Message("Server", "Received message from " + message.getAuthor() + ": " + message.getContent()));
+    }
+
+    private void showConnectionClosed() {
+        System.out.printf("Server: connection #%d closed\n", connectionNumber);
+    }
+
+    private void showMessageFormatError() {
+        System.out.printf("Server: Incorrect message format in connection #%d\n", connectionNumber);
     }
 
 }

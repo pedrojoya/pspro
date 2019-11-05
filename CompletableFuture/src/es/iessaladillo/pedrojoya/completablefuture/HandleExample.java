@@ -6,13 +6,13 @@ import java.util.concurrent.ThreadLocalRandom;
 public class HandleExample {
 
     public static void main(String[] args) {
-        new HandleExample().exceptionallyExample();
+        new HandleExample().handleExample();
     }
 
-    private void exceptionallyExample() {
+    private void handleExample() {
         CompletableFuture<Void> cf =
                 CompletableFuture.supplyAsync(this::generateNumber)
-                        .exceptionally(this::recover)
+                        .handle(this::handler)
                         .thenApplyAsync(this::duplicate)
                         .thenAcceptAsync(this::printNumber);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
@@ -29,10 +29,13 @@ public class HandleExample {
         }
     }
 
-    private Integer recover(Throwable throwable) {
-        int recoveringValue = 100;
-        System.out.printf("%s - Recovering to %d\n", Thread.currentThread().getName(), recoveringValue);
-        return recoveringValue;
+    private Integer handler(Integer value, Throwable throwable) {
+        Integer valueToReturn = value;
+        if (throwable != null) {
+            valueToReturn = 100;
+        }
+        System.out.printf("%s - Handler returning %d\n", Thread.currentThread().getName(), valueToReturn);
+        return valueToReturn;
     }
 
     private Integer duplicate(Integer value) {

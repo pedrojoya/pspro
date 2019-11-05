@@ -5,15 +5,14 @@ import java.util.concurrent.CompletableFuture;
 public class ThenRunAsyncExample {
 
     public static void main(String[] args) {
-        new ThenRunAsyncExample().thenRunExample();
+        new ThenRunAsyncExample().thenRunAsyncExample();
     }
 
-    private void thenRunExample() {
-        CompletableFuture.runAsync(() ->
-            printInfo()
-        ).thenRun(() ->
-            printMoreInfo()
-        );
+    private void thenRunAsyncExample() {
+        CompletableFuture<Void> cf =
+                CompletableFuture.runAsync(this::printInfo);
+        sleep(1000);
+        cf.thenRunAsync(this::printMoreInfo);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
     }
 
@@ -23,6 +22,15 @@ public class ThenRunAsyncExample {
 
     private void printMoreInfo() {
         System.out.printf("%s - Task2\n", Thread.currentThread().getName());
+    }
+
+    private boolean sleep(long timeInMillis) {
+        try {
+            Thread.sleep(timeInMillis);
+            return true;
+        } catch (InterruptedException e) {
+            return false;
+        }
     }
 
 }

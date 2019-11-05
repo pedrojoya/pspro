@@ -6,23 +6,22 @@ import java.util.concurrent.ExecutionException;
 public class JoinExample {
 
     public static void main(String[] args) {
-        new JoinExample().suplyAsyncExample();
+        new JoinExample().joinExample();
     }
 
-    private void suplyAsyncExample() {
-        CompletableFuture<Integer> cf = CompletableFuture.supplyAsync(() -> generateNumber());
-        try {
-            Integer generatedValue = cf.get();
-            System.out.printf("%s - Main - Generated: %d\n", Thread.currentThread().getName(), generatedValue);
-        } catch (InterruptedException ignored) {
-        } catch (ExecutionException e) {
-            System.out.println("Exception thrown in async task");
-        }
+    private void joinExample() {
+        CompletableFuture<Integer> cf = CompletableFuture.supplyAsync(this::generateNumber);
+        Integer value = cf.join();
+        printNumber(value);
     }
 
     private int generateNumber() {
         System.out.printf("%s - Supplier\n", Thread.currentThread().getName());
         return 2;
+    }
+
+    private void printNumber(Integer value) {
+        System.out.printf("%s - %d\n", Thread.currentThread().getName(), value);
     }
 
 }

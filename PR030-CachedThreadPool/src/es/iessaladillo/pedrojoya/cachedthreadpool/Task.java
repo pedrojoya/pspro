@@ -14,6 +14,10 @@ class Task implements Runnable {
         this.name = name;
     }
 
+    String getName() {
+        return name;
+    }
+
     @Override
     public void run() {
         System.out.printf("%s -> %s -> Started at: %s\n",

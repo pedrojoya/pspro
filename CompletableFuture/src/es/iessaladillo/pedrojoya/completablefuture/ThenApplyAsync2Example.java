@@ -9,13 +9,10 @@ public class ThenApplyAsync2Example {
     }
 
     private void thenApplyAsyncExample() {
-        CompletableFuture<Void> cf = CompletableFuture.supplyAsync(() ->
-                generateNumber()
-        ).thenApplyAsync(value ->
-                duplicate(value)
-        ).thenAcceptAsync(value ->
-                printNumber(value)
-        );
+        CompletableFuture<Void> cf =
+                CompletableFuture.supplyAsync(this::generateNumber)
+                        .thenApplyAsync(this::duplicate)
+                        .thenAcceptAsync(this::printNumber);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
         cf.join();
     }

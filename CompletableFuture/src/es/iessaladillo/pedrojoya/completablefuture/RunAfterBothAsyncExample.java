@@ -6,17 +6,15 @@ import java.util.concurrent.ThreadLocalRandom;
 public class RunAfterBothAsyncExample {
 
     public static void main(String[] args) {
-        new RunAfterBothAsyncExample().runAfterEitherAsyncExample();
+        new RunAfterBothAsyncExample().runAfterBothAsyncExample();
     }
 
-    private void runAfterEitherAsyncExample() {
+    private void runAfterBothAsyncExample() {
         CompletableFuture<Integer> cf1 = CompletableFuture.supplyAsync(this::generateNumber1);
         CompletableFuture<Integer> cf2 = CompletableFuture.supplyAsync(this::generateNumber2);
-        CompletableFuture<Void> cfAfterFirst = cf1.runAfterEitherAsync(cf2, this::printInfo);
+        CompletableFuture<Void> cfAfterBoth = cf1.runAfterBothAsync(cf2, this::printInfo);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
-        cfAfterFirst.join();
-        cf1.join();
-        cf2.join();
+        cfAfterBoth.join();
     }
 
     private int generateNumber1() {

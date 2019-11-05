@@ -13,24 +13,26 @@ import java.security.NoSuchAlgorithmException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class SymmetricUtilsTest {
+class SymmetricEncryptionUtilsTest {
 
     @Test
     void createAESKey() throws NoSuchAlgorithmException {
-        SecretKey secretKey = SymmetricUtils.createAESKey();
+        SecretKey secretKey = SymmetricEncryptionUtils.createAESKey();
         assertNotNull(secretKey);
         System.out.println(DatatypeConverter.printHexBinary(secretKey.getEncoded()));
     }
 
     @Test
     void decryptWithAES() throws NoSuchAlgorithmException, IllegalBlockSizeException, InvalidKeyException, BadPaddingException, InvalidAlgorithmParameterException, NoSuchPaddingException {
-        SecretKey secretKey = SymmetricUtils.createAESKey();
-        byte[] initializationVector = SymmetricUtils.createInitiazationVector();
+        SecretKey secretKey = SymmetricEncryptionUtils.createAESKey();
+        byte[] initializationVector = SymmetricEncryptionUtils.createInitiazationVector();
         assertNotNull(initializationVector);
         String plainText = "Baldomero Llégate Ligero";
-        byte[] cipherText = SymmetricUtils.encryptWithAES(plainText, secretKey, initializationVector);
+        byte[] cipherText = SymmetricEncryptionUtils.encryptWithAES(plainText, secretKey, initializationVector);
+        assertNotNull(cipherText);
         System.out.println(DatatypeConverter.printHexBinary(cipherText));
-        String result = SymmetricUtils.decryptWithAES(cipherText, secretKey, initializationVector);
-        assertEquals(plainText, result);
+        String decryptedText = SymmetricEncryptionUtils.decryptWithAES(cipherText, secretKey, initializationVector);
+        assertEquals(plainText, decryptedText);
     }
+
 }

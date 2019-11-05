@@ -6,23 +6,35 @@ import java.util.concurrent.ExecutionException;
 public class GetNowExample {
 
     public static void main(String[] args) {
-        new GetNowExample().suplyAsyncExample();
+        new GetNowExample().getNowExample();
     }
 
-    private void suplyAsyncExample() {
-        CompletableFuture<Integer> cf = CompletableFuture.supplyAsync(() -> generateNumber());
-        try {
-            Integer generatedValue = cf.get();
-            System.out.printf("%s - Main - Generated: %d\n", Thread.currentThread().getName(), generatedValue);
-        } catch (InterruptedException ignored) {
-        } catch (ExecutionException e) {
-            System.out.println("Exception thrown in async task");
-        }
+    private void getNowExample() {
+        CompletableFuture<Integer> cf = CompletableFuture.supplyAsync(this::generateNumber);
+        Integer value = cf.getNow(0);
+        printNumber(value);
+        sleep(3000);
+        Integer value2 = cf.getNow(0);
+        printNumber(value2);
+    }
+
+    private void printNumber(Integer value) {
+        System.out.printf("%s - Main - %d\n", Thread.currentThread().getName(), value);
     }
 
     private int generateNumber() {
+        sleep(2000);
         System.out.printf("%s - Task\n", Thread.currentThread().getName());
         return 2;
+    }
+
+    private boolean sleep(long timeInMillis) {
+        try {
+            Thread.sleep(timeInMillis);
+            return true;
+        } catch (InterruptedException e) {
+            return false;
+        }
     }
 
 }

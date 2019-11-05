@@ -3,18 +3,18 @@ package es.iessaladillo.pedrojoya.completablefuture;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ThreadLocalRandom;
 
-public class RunEitherAsyncExample {
+public class RunAfterEitherAsyncExample {
 
     public static void main(String[] args) {
-        new RunEitherAsyncExample().runEitherAsyncExample();
+        new RunAfterEitherAsyncExample().runAfterEitherAsyncExample();
     }
 
-    private void runEitherAsyncExample() {
+    private void runAfterEitherAsyncExample() {
         CompletableFuture<Integer> cf1 = CompletableFuture.supplyAsync(this::generateNumber1);
         CompletableFuture<Integer> cf2 = CompletableFuture.supplyAsync(this::generateNumber2);
-        CompletableFuture<Void> cfFirstConsumed = cf1.runEitherAsync(cf2, this::printNumber);
+        CompletableFuture<Void> cfAfterFirst = cf1.runAfterEitherAsync(cf2, this::printInfo);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
-        cfFirstConsumed.join();
+        cfAfterFirst.join();
         cf1.join();
         cf2.join();
     }
@@ -33,9 +33,8 @@ public class RunEitherAsyncExample {
         return value;
     }
 
-    private void printNumber(Integer value) {
-        System.out.printf("%s - Consumer - %s\n",
-                Thread.currentThread().getName(), value);
+    private void printInfo() {
+        System.out.printf("%s - Task\n", Thread.currentThread().getName());
     }
 
     private boolean sleep(long timeInMillis) {

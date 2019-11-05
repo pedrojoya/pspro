@@ -2,21 +2,19 @@ package es.iessaladillo.pedrojoya.completablefuture;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ThenApplyExample {
+public class ThenApplyAsyncExample {
 
     public static void main(String[] args) {
-        new ThenApplyExample().thenApplyExample();
+        new ThenApplyAsyncExample().thenApplyAsyncExample();
     }
 
-    private void thenApplyExample() {
-        CompletableFuture.supplyAsync(() ->
-                generateNumber()
-        ).thenApply(value ->
-                duplicate(value)
-        ).thenAccept(value ->
-                printNumber(value)
-        );
+    private void thenApplyAsyncExample() {
+        CompletableFuture<Void> cf =
+                CompletableFuture.supplyAsync(this::generateNumber)
+                        .thenApplyAsync(this::duplicate)
+                        .thenAcceptAsync(this::printNumber);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
+        cf.join();
     }
 
     private int generateNumber() {
@@ -31,9 +29,9 @@ public class ThenApplyExample {
         return duplicated;
     }
 
-    private void printNumber(Integer generatedValue) {
-        System.out.printf("%s - Consumer - Generated: %d\n",
-                Thread.currentThread().getName(), generatedValue);
+    private void printNumber(Integer value) {
+        System.out.printf("%s - Consumer - %d\n",
+                Thread.currentThread().getName(), value);
     }
 
 }

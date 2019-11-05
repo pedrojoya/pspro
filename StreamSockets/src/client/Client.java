@@ -1,3 +1,5 @@
+package client;
+
 import message.Message;
 
 import java.io.IOException;
@@ -42,7 +44,7 @@ public class Client implements Runnable {
 
     private void receiveMessage(ObjectInputStream input) throws IOException, ClassNotFoundException {
         Message message = (Message) input.readObject();
-        System.out.printf("Client #%d - message.Message from %s: %s\n", clientNumber, message.getAuthor(), message.getContent());
+        System.out.printf("Client #%d - Message from %s: %s\n", clientNumber, message.getAuthor(), message.getContent());
     }
 
     private void closeConnection() throws InterruptedException {

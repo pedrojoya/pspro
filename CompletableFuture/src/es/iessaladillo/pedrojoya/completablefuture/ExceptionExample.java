@@ -5,10 +5,10 @@ import java.util.concurrent.CompletableFuture;
 public class ExceptionExample {
 
     public static void main(String[] args) {
-        new ExceptionExample().thenApplyAsyncExample();
+        new ExceptionExample().exceptionExample();
     }
 
-    private void thenApplyAsyncExample() {
+    private void exceptionExample() {
         CompletableFuture<Void> cf =
                 CompletableFuture.supplyAsync(this::generateNumber)
                         .thenApplyAsync(this::duplicate)
@@ -19,7 +19,7 @@ public class ExceptionExample {
 
     private int generateNumber() {
         System.out.printf("%s - Supplier\n", Thread.currentThread().getName());
-        return 2;
+        throw new RuntimeException();
     }
 
     private Integer duplicate(Integer value) {

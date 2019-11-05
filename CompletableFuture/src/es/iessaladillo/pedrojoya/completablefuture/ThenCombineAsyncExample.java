@@ -5,35 +5,38 @@ import java.util.concurrent.CompletableFuture;
 public class ThenCombineAsyncExample {
 
     public static void main(String[] args) {
-        new ThenCombineAsyncExample().thenComposeAsyncExample();
+        new ThenCombineAsyncExample().thenCombineAsyncExample();
     }
 
-    private void thenComposeAsyncExample() {
-        CompletableFuture<Void> cf =
-                CompletableFuture.supplyAsync(this::generateNumber)
-                        .thenComposeAsync(this::duplicate)
-                        .thenAcceptAsync(this::printNumber);
+    private void thenCombineAsyncExample() {
+        CompletableFuture<Integer> cf1 = CompletableFuture.supplyAsync(this::generateNumber);
+        CompletableFuture<String> cf2 = CompletableFuture.supplyAsync(this::generateName);
+        CompletableFuture<Void> cfCombined = cf1.thenCombineAsync(cf2, this::combineNumberAndName)
+                .thenAcceptAsync(this::printCombination);
+
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
-        cf.join();
+        cfCombined.join();
     }
 
     private int generateNumber() {
-        System.out.printf("%s - Supplier\n", Thread.currentThread().getName());
+        System.out.printf("%s - Number Supplier\n", Thread.currentThread().getName());
         return 2;
     }
 
-    private CompletableFuture<Integer> duplicate(Integer value) {
-        return CompletableFuture.supplyAsync(() -> {
-            int duplicated = value * 2;
-            System.out.printf("%s - Function - Duplicated: %d\n",
-                    Thread.currentThread().getName(), duplicated);
-            return duplicated;
-        });
+    private String generateName() {
+        System.out.printf("%s - Name Supplier\n", Thread.currentThread().getName());
+        return "Baldomero";
     }
 
-    private void printNumber(Integer value) {
-        System.out.printf("%s - Consumer - %d\n",
-                Thread.currentThread().getName(), value);
+    private String combineNumberAndName(Integer number, String name) {
+        String combination = name + " " + number;
+        System.out.printf("%s - Bifunction: %s\n", Thread.currentThread().getName(), combination);
+        return combination;
+    }
+
+    private void printCombination(String combination) {
+        System.out.printf("%s - Consumer - %s\n",
+                Thread.currentThread().getName(), combination);
     }
 
 }

@@ -5,12 +5,13 @@ import java.util.concurrent.CompletableFuture;
 public class WhenCompleteAsyncExample {
 
     public static void main(String[] args) {
-        new WhenCompleteAsyncExample().thenApplyAsyncExample();
+        new WhenCompleteAsyncExample().whenCompleteAsyncExample();
     }
 
-    private void thenApplyAsyncExample() {
+    private void whenCompleteAsyncExample() {
         CompletableFuture<Void> cf =
                 CompletableFuture.supplyAsync(this::generateNumber)
+                        .whenCompleteAsync(this::log)
                         .thenApplyAsync(this::duplicate)
                         .thenAcceptAsync(this::printNumber);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
@@ -20,6 +21,13 @@ public class WhenCompleteAsyncExample {
     private int generateNumber() {
         System.out.printf("%s - Supplier\n", Thread.currentThread().getName());
         return 2;
+    }
+
+    private void log(Integer value, Throwable throwable) {
+        if (value != null) {
+            System.out.printf("%s - Before Duplication - %d\n",
+                    Thread.currentThread().getName(), value);
+        }
     }
 
     private Integer duplicate(Integer value) {

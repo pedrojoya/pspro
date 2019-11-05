@@ -2,18 +2,17 @@ package es.iessaladillo.pedrojoya.completablefuture;
 
 import java.util.concurrent.CompletableFuture;
 
-public class ThenRunExample {
+public class ThenRun2Example {
 
     public static void main(String[] args) {
-        new ThenRunExample().thenRunExample();
+        new ThenRun2Example().thenRun2Example();
     }
 
-    private void thenRunExample() {
-        CompletableFuture.runAsync(() ->
-            printInfo()
-        ).thenRun(() ->
-            printMoreInfo()
-        );
+    private void thenRun2Example() {
+        CompletableFuture<Void> cf =
+                CompletableFuture.runAsync(this::printInfo);
+        sleep(1000);
+        cf.thenRun(this::printMoreInfo);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
     }
 
@@ -23,6 +22,15 @@ public class ThenRunExample {
 
     private void printMoreInfo() {
         System.out.printf("%s - Task2\n", Thread.currentThread().getName());
+    }
+
+    private boolean sleep(long timeInMillis) {
+        try {
+            Thread.sleep(timeInMillis);
+            return true;
+        } catch (InterruptedException e) {
+            return false;
+        }
     }
 
 }

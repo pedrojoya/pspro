@@ -6,15 +6,17 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ApplyToEitherAsyncExample {
 
     public static void main(String[] args) {
-        new ApplyToEitherAsyncExample().acceptEitherAsyncExample();
+        new ApplyToEitherAsyncExample().applyToEitherAsyncExample();
     }
 
-    private void acceptEitherAsyncExample() {
+    private void applyToEitherAsyncExample() {
         CompletableFuture<Integer> cf1 = CompletableFuture.supplyAsync(this::generateNumber1);
         CompletableFuture<Integer> cf2 = CompletableFuture.supplyAsync(this::generateNumber2);
-        CompletableFuture<Void> cfFirstConsumed = cf1.acceptEitherAsync(cf2, this::printNumber);
+        CompletableFuture<Void> cfFirstTransformedAndConsumed =
+                cf1.applyToEitherAsync(cf2, this::duplicate)
+                .thenAccept(this::printNumber);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
-        cfFirstConsumed.join();
+        cfFirstTransformedAndConsumed.join();
         cf1.join();
         cf2.join();
     }
@@ -33,8 +35,15 @@ public class ApplyToEitherAsyncExample {
         return value;
     }
 
+    private Integer duplicate(Integer value) {
+        int duplicated = value * 2;
+        System.out.printf("%s - Function - Duplicated: %d\n",
+                Thread.currentThread().getName(), duplicated);
+        return duplicated;
+    }
+
     private void printNumber(Integer value) {
-        System.out.printf("%s - Consumer - %s\n",
+        System.out.printf("%s - Consumer - %d\n",
                 Thread.currentThread().getName(), value);
     }
 

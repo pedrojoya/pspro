@@ -6,17 +6,15 @@ import java.util.concurrent.ThreadLocalRandom;
 public class ThenAcceptBothAsyncExample {
 
     public static void main(String[] args) {
-        new ThenAcceptBothAsyncExample().acceptEitherAsyncExample();
+        new ThenAcceptBothAsyncExample().thenAcceptBothAsyncExample();
     }
 
-    private void acceptEitherAsyncExample() {
+    private void thenAcceptBothAsyncExample() {
         CompletableFuture<Integer> cf1 = CompletableFuture.supplyAsync(this::generateNumber1);
         CompletableFuture<Integer> cf2 = CompletableFuture.supplyAsync(this::generateNumber2);
-        CompletableFuture<Void> cfFirstConsumed = cf1.acceptEitherAsync(cf2, this::printNumber);
+        CompletableFuture<Void> cfBothConsumed = cf1.thenAcceptBothAsync(cf2, this::add);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
-        cfFirstConsumed.join();
-        cf1.join();
-        cf2.join();
+        cfBothConsumed.join();
     }
 
     private int generateNumber1() {
@@ -33,9 +31,9 @@ public class ThenAcceptBothAsyncExample {
         return value;
     }
 
-    private void printNumber(Integer value) {
-        System.out.printf("%s - Consumer - %s\n",
-                Thread.currentThread().getName(), value);
+    private void add(Integer value1, Integer value2) {
+        System.out.printf("%s - BiConsumer - %d + %d = %d\n",
+                Thread.currentThread().getName(), value1, value2, value1 + value2);
     }
 
     private boolean sleep(long timeInMillis) {

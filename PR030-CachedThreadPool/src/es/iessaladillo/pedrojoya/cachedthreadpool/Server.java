@@ -10,9 +10,13 @@ class Server {
             (ThreadPoolExecutor) Executors.newCachedThreadPool();
 
     void execute(Task task) {
-        cachedThreadPool.execute(task);
-        System.out.printf("Server -> Thread pool size: %d\n", cachedThreadPool.getPoolSize());
-        System.out.printf("Server -> Active threads count: %d\n", cachedThreadPool.getActiveCount());
+        try {
+            cachedThreadPool.execute(task);
+            System.out.printf("Server -> Thread pool size: %d\n", cachedThreadPool.getPoolSize());
+            System.out.printf("Server -> Active threads count: %d\n", cachedThreadPool.getActiveCount());
+        } catch (Exception e) {
+            System.out.printf("Server -> Task rejected: %s\n", task.getName());
+        }
     }
 
     void shutdown() throws InterruptedException {

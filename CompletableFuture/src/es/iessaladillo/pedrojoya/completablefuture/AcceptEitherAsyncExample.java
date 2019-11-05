@@ -1,42 +1,50 @@
 package es.iessaladillo.pedrojoya.completablefuture;
 
 import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.ThreadLocalRandom;
 
 public class AcceptEitherAsyncExample {
 
     public static void main(String[] args) {
-        new AcceptEitherAsyncExample().thenCombineAsyncExample();
+        new AcceptEitherAsyncExample().acceptEitherAsyncExample();
     }
 
-    private void thenCombineAsyncExample() {
-        CompletableFuture<Integer> cf1 = CompletableFuture.supplyAsync(this::generateNumber);
-        CompletableFuture<String> cf2 = CompletableFuture.supplyAsync(this::generateName);
-        CompletableFuture<Void> cfCombined = cf1.thenCombineAsync(cf2, this::combineNumberAndName)
-                .thenAcceptAsync(this::printCombination);
-
+    private void acceptEitherAsyncExample() {
+        CompletableFuture<Integer> cf1 = CompletableFuture.supplyAsync(this::generateNumber1);
+        CompletableFuture<Integer> cf2 = CompletableFuture.supplyAsync(this::generateNumber2);
+        CompletableFuture<Void> cfFirstConsumed = cf1.acceptEitherAsync(cf2, this::printNumber);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
-        cfCombined.join();
+        cfFirstConsumed.join();
+        cf1.join();
+        cf2.join();
     }
 
-    private int generateNumber() {
-        System.out.printf("%s - Number Supplier\n", Thread.currentThread().getName());
-        return 2;
+    private int generateNumber1() {
+        int value = ThreadLocalRandom.current().nextInt(5) + 1;
+        sleep(value * 1000);
+        System.out.printf("%s - Supplier1 - %d\n", Thread.currentThread().getName(), value);
+        return value;
     }
 
-    private String generateName() {
-        System.out.printf("%s - Name Supplier\n", Thread.currentThread().getName());
-        return "Baldomero";
+    private int generateNumber2() {
+        int value = ThreadLocalRandom.current().nextInt(5) + 1;
+        sleep(value * 1000);
+        System.out.printf("%s - Supplier2 - %d\n", Thread.currentThread().getName(), value);
+        return value;
     }
 
-    private String combineNumberAndName(Integer number, String name) {
-        String combination = name + " " + number;
-        System.out.printf("%s - Bifunction: %s\n", Thread.currentThread().getName(), combination);
-        return combination;
+    private void printNumber(Integer value) {
+        System.out.printf("%s - Consumer - %d\n",
+                Thread.currentThread().getName(), value);
     }
 
-    private void printCombination(String combination) {
-        System.out.printf("%s - Consumer - %s\n",
-                Thread.currentThread().getName(), combination);
+    private boolean sleep(long timeInMillis) {
+        try {
+            Thread.sleep(timeInMillis);
+            return true;
+        } catch (InterruptedException e) {
+            return false;
+        }
     }
 
 }

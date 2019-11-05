@@ -5,18 +5,16 @@ import java.util.concurrent.CompletableFuture;
 public class ThenComposeAsyncExample {
 
     public static void main(String[] args) {
-        new ThenComposeAsyncExample().thenApplyAsyncExample();
+        new ThenComposeAsyncExample().thenComposeAsyncExample();
     }
 
-    private void thenApplyAsyncExample() {
-        CompletableFuture.supplyAsync(() ->
-                generateNumber()
-        ).thenApplyAsync(value ->
-                duplicate(value)
-        ).thenAcceptAsync(value ->
-                printNumber(value)
-        );
+    private void thenComposeAsyncExample() {
+        CompletableFuture<Void> cf =
+                CompletableFuture.supplyAsync(this::generateNumber)
+                        .thenComposeAsync(this::duplicate)
+                        .thenAcceptAsync(this::printNumber);
         System.out.printf("%s - Main\n", Thread.currentThread().getName());
+        cf.join();
     }
 
     private int generateNumber() {
@@ -24,11 +22,13 @@ public class ThenComposeAsyncExample {
         return 2;
     }
 
-    private Integer duplicate(Integer value) {
-        int duplicated = value * 2;
-        System.out.printf("%s - Function - Duplicated: %d\n",
-                Thread.currentThread().getName(), duplicated);
-        return duplicated;
+    private CompletableFuture<Integer> duplicate(Integer value) {
+        return CompletableFuture.supplyAsync(() -> {
+            int duplicated = value * 2;
+            System.out.printf("%s - Function - Duplicated: %d\n",
+                    Thread.currentThread().getName(), duplicated);
+            return duplicated;
+        });
     }
 
     private void printNumber(Integer value) {
