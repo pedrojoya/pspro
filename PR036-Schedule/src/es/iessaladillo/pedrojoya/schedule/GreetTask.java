@@ -2,6 +2,7 @@ package es.iessaladillo.pedrojoya.schedule;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.concurrent.TimeUnit;
 
 class GreetTask implements Runnable {
 
@@ -16,6 +17,11 @@ class GreetTask implements Runnable {
 
     @Override
     public void run() {
+        try {
+            TimeUnit.SECONDS.sleep(6);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         System.out.printf("%s -> %s - %s\n",
                 Thread.currentThread().getName(),
                 dateTimeFormatter.format(LocalDateTime.now()),

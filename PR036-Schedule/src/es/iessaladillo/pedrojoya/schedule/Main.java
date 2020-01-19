@@ -9,14 +9,14 @@ class Main {
     public static void main(String[] args) {
         DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
         ScheduledExecutorService scheduledExecutor =
-                Executors.newSingleThreadScheduledExecutor();
+                Executors.newScheduledThreadPool(5);
         GreetTask greetTask = new GreetTask("Hello");
         ScheduledFuture<?> greetScheduledFuture = scheduledExecutor.schedule(greetTask, 5, TimeUnit.SECONDS);
         System.out.printf("%s -> %s - Greet task sent. Still %d seconds left\n",
                 Thread.currentThread().getName(),
                 dateTimeFormatter.format(LocalDateTime.now()),
                 greetScheduledFuture.getDelay(TimeUnit.SECONDS));
-        int number = 10;
+        int number = -10;
         // Try with
         //int number = -1;
         int factorialTaskDelay = 10;

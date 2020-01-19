@@ -31,6 +31,7 @@ class FactorialTask implements Callable<Integer> {
             factorial *= i;
             TimeUnit.MILLISECONDS.sleep(20);
         }
+        TimeUnit.SECONDS.sleep(2);
         return factorial;
     }
 
