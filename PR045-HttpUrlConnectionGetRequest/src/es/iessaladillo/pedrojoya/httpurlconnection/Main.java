@@ -1,6 +1,7 @@
 package es.iessaladillo.pedrojoya.httpurlconnection;
 
 import java.io.IOException;
+import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Map;
 

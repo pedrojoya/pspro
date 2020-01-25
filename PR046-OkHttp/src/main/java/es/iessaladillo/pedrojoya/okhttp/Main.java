@@ -4,25 +4,27 @@ import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.TimeUnit;
 
 @SuppressWarnings("SameParameterValue")
 public class Main {
 
-    // 1. Create Http client
-    private static OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
+    public static void main(String[] args) {
+        new Main();
+    }
+
+    // 1. Create Http client.
+    private final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
             // 1.1. Request timeouts.
             .connectTimeout(5000, TimeUnit.MILLISECONDS)
             .readTimeout(5000, TimeUnit.MILLISECONDS)
             .build();
+    private final ApiService apiService = new ApiService(okHttpClient);
 
-    public static void main(String[] args) throws IOException {
-//        showPosts();
+    private Main() {
+        showPostsSync();
         showPostsWithCallback();
-        showPostsAsync();
+        showPosts();
         showPostsHeaders();
         showPostsAccessOptions();
         showPost(1);
@@ -33,36 +35,17 @@ public class Main {
         showUserPosts(1);
     }
 
-    private static void showPosts() throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts");
-        // 2. Create http request
-        Request request = new Request.Builder()
-                // 2.1. URL
-                .url(url)
-                // 2.2. Request method.
-                .get()
-                .build();
-        // 3. Create a new Call with that request.
-        Call call = okHttpClient.newCall(request);
-        // 4. Execute call and obtain a response (blocking)
-        try (Response response = call.execute()) {
-            // 5. Process response
+    private void showPostsSync() {
+        try {
+            Response response = apiService.getPostsSync();
             showResponse(response);
         } catch (IOException e) {
-            // 6. Process failure.
             showError(e);
-            throw e;
         }
     }
 
-    private static void showPostsWithCallback() throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts");
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .build();
-        Call call = okHttpClient.newCall(request);
-        call.enqueue(new Callback() {
+    private void showPostsWithCallback() {
+        apiService.getPostsWithCallback(new Callback() {
             @Override
             public void onFailure(@NotNull Call call, @NotNull IOException e) {
                 showError(e);
@@ -75,124 +58,50 @@ public class Main {
         });
     }
 
-    private static void showPostsAsync() throws MalformedURLException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts");
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .build();
-        Call call = okHttpClient.newCall(request);
-        showResponseOrError(call);
+    private void showPosts() {
+        apiService.getPosts().whenComplete(this::showResponseOrError).join();
     }
 
-    private static void showPostsAccessOptions() throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts");
-        Request request = new Request.Builder()
-                .url(url)
-                .method("OPTIONS", null)
-                .build();
-        Call call = okHttpClient.newCall(request);
-        showResponseOrError(call);
+    private void showPostsAccessOptions() {
+        apiService.getPostsAccessOptions().whenComplete(this::showResponseOrError).join();
     }
 
-    private static void showPostsHeaders() throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts");
-        Request request = new Request.Builder()
-                .url(url)
-                .head()
-                .build();
-        Call call = okHttpClient.newCall(request);
-        showResponseOrError(call);
+    private void showPostsHeaders() {
+        apiService.getPostsHeaders().whenComplete(this::showResponseOrError).join();
     }
 
-    private static void showPost(int postId) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts/" + postId);
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .build();
-        Call call = okHttpClient.newCall(request);
-        showResponseOrError(call);
+    private void showPost(int postId) {
+        apiService.getPost(postId).whenComplete(this::showResponseOrError).join();
     }
 
-    private static void createPost(String jsonPost) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts");
-        RequestBody requestBody = RequestBody.create(jsonPost, MediaType.get("application/json; charset=utf-8"));
-        Request request = new Request.Builder()
-                .url(url)
-                .post(requestBody)
-                .build();
-        Call call = okHttpClient.newCall(request);
-        showResponseOrError(call);
+    private void createPost(String jsonPost) {
+        apiService.createPost(jsonPost).whenComplete(this::showResponseOrError).join();
     }
 
-    private static void updatePost(int postId, String jsonPost) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts/" + postId);
-        RequestBody requestBody = RequestBody.create(jsonPost, MediaType.get("application/json; charset=utf-8"));
-        Request request = new Request.Builder()
-                .url(url)
-                .put(requestBody)
-                .build();
-        Call call = okHttpClient.newCall(request);
-        showResponseOrError(call);
+    private void updatePost(int postId, String jsonPost) {
+        apiService.updatePost(postId, jsonPost).whenComplete(this::showResponseOrError).join();
     }
 
-    private static void patchPost(int postId, String jsonPost) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts/" + postId);
-        RequestBody requestBody = RequestBody.create(jsonPost, MediaType.get("application/json; charset=utf-8"));
-        Request request = new Request.Builder()
-                .url(url)
-                .post(requestBody)
-                .addHeader("X-HTTP-Method-Override", "PATCH")
-                .build();
-        Call call = okHttpClient.newCall(request);
-        showResponseOrError(call);
+    private void patchPost(int postId, String jsonPost) {
+        apiService.patchPost(postId, jsonPost).whenComplete(this::showResponseOrError).join();
     }
 
-    private static void deletePost(int postId) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts/" + postId);
-        Request request = new Request.Builder()
-                .url(url)
-                .delete()
-                .build();
-        Call call = okHttpClient.newCall(request);
-        showResponseOrError(call);
+    private void deletePost(int postId) {
+        apiService.deletePost(postId).whenComplete(this::showResponseOrError).join();
     }
 
-    private static void showUserPosts(int userId) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/users/" + userId + "/posts");
-        Request request = new Request.Builder()
-                .url(url)
-                .get()
-                .build();
-        Call call = okHttpClient.newCall(request);
-        showResponseOrError(call);
+    private void showUserPosts(int userId) {
+        apiService.getUserPosts(userId).whenComplete(this::showResponseOrError).join();
     }
 
     // ---------------------------------------------------------
 
-    private static void showResponseOrError(Call call) {
-        executeAsync(call).whenComplete((response, throwable) -> {
-            if (throwable != null) {
-                showError(throwable);
-            }
-        }).thenAccept((Main::showResponse));
-    }
-
-    private static CompletableFuture<Response> executeAsync(Call call) {
-        CompletableFuture<Response> cf = new CompletableFuture<>();
-        call.enqueue(new Callback() {
-            @Override
-            public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                cf.completeExceptionally(e);
-            }
-
-            @Override
-            public void onResponse(@NotNull Call call, @NotNull Response response) {
-                cf.complete(response);
-            }
-        });
-        return cf;
+    private void showResponseOrError(Response response, Throwable throwable) {
+        if (throwable != null) {
+            showError(throwable);
+        } else {
+            showResponse(response);
+        }
     }
 
     private static void showResponse(Response response) {

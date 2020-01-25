@@ -65,7 +65,7 @@ public class HttpUtils {
             }
         } catch (IOException e) {
             // 5. Process failure.
-            System.out.println("\nERROR IN CONNECTION");
+            System.out.println(e.toString());
         } finally {
             // 6. Disconnect
             if (httpUrlConnection != null) {
