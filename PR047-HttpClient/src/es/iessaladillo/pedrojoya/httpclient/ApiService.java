@@ -39,7 +39,7 @@ public class ApiService {
     public CompletableFuture<HttpResponse<String>> getPostsHeaders() {
         URI uri = URI.create(BASE_URL + "posts");
         HttpRequest httpRequest = HttpRequest.newBuilder()
-                .method("HEAD", null)
+                .method("HEAD", HttpRequest.BodyPublishers.noBody())
                 .uri(uri)
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
@@ -49,7 +49,7 @@ public class ApiService {
     public CompletableFuture<HttpResponse<String>> getPostsAccessOptions() {
         URI uri = URI.create(BASE_URL + "posts");
         HttpRequest httpRequest = HttpRequest.newBuilder()
-                .method("OPTIONS", null)
+                .method("OPTIONS", HttpRequest.BodyPublishers.noBody())
                 .uri(uri)
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();

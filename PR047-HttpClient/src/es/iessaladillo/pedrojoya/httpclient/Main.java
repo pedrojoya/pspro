@@ -30,21 +30,6 @@ public class Main {
         new Main();
     }
 
-    private static void showError(Throwable e) {
-        System.out.println(e.toString());
-    }
-
-    private static void showResponse(HttpResponse<String> response) {
-        System.out.println(response.statusCode());
-        response.headers().map().forEach((key, value) -> System.out.println(key + ": " + String.join(";", value)));
-        if (response.statusCode() >= 200 && response.statusCode() < 300) {
-            String responseBody = response.body();
-            if (responseBody != null) {
-                System.out.println("\n" + responseBody);
-            }
-        }
-    }
-
     private void showPostsSync() {
         try {
             HttpResponse<String> httpResponse = apiService.getPostsSync();
@@ -95,6 +80,21 @@ public class Main {
             showError(throwable);
         } else {
             showResponse(httpResponse);
+        }
+    }
+
+    private void showError(Throwable e) {
+        System.out.println(e.toString());
+    }
+
+    private void showResponse(HttpResponse<String> response) {
+        System.out.println(response.statusCode());
+        response.headers().map().forEach((key, value) -> System.out.println(key + ": " + String.join(";", value)));
+        if (response.statusCode() >= 200 && response.statusCode() < 300) {
+            String responseBody = response.body();
+            if (responseBody != null) {
+                System.out.println("\n" + responseBody);
+            }
         }
     }
 
