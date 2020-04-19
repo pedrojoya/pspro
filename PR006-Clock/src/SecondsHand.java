@@ -1,16 +1,15 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 
 public class SecondsHand implements Runnable {
 
-    private SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
+    private DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     @Override
     public void run() {
         while (!Thread.currentThread().isInterrupted()) {
-            System.out.println(simpleDateFormat.format(new Date()));
+            System.out.println(LocalDateTime.now().format(dateTimeFormatter));
             try {
                 TimeUnit.SECONDS.sleep(1);
             } catch (InterruptedException e) {
