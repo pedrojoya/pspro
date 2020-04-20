@@ -2,16 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9896d29a-33b4-4dd8-a627-3809ee9f4659" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR009-SynchronizedMethod/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR009-SynchronizedMethod/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR009-SynchronizedMethod/AccountConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR009-SynchronizedMethod/AccountConsumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR009-SynchronizedMethod/AccountSaver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR009-SynchronizedMethod/AccountSaver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR009-SynchronizedMethod/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR009-SynchronizedMethod/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountSaver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/out/production/PR010-SynchronizedSentence/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/out/production/PR010-SynchronizedSentence/Account.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/out/production/PR010-SynchronizedSentence/AccountConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/out/production/PR010-SynchronizedSentence/AccountConsumer.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/out/production/PR010-SynchronizedSentence/AccountSaver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/out/production/PR010-SynchronizedSentence/AccountSaver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/out/production/PR010-SynchronizedSentence/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/out/production/PR010-SynchronizedSentence/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/src/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/src/Account.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/src/AccountConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/src/AccountConsumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/src/AccountSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/src/AccountSaver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/cryptography.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/cryptography.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/META-INF/cryptography.kotlin_module" beforeDir="false" />
@@ -49,7 +50,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1ansahZgcsnuLRNj07m3YeMqujI" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
@@ -120,34 +123,55 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543519301640</updated>
-      <workItem from="1587382758807" duration="1307000" />
+      <workItem from="1587382758807" duration="2085000" />
     </task>
+    <task id="LOCAL-00001" summary="PR009-SynchronizedMethod - Use Java 8 time">
+      <created>1587403181872</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587403181872</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="PR009-SynchronizedMethod - Use Java 8 time" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR009-SynchronizedMethod - Use Java 8 time" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1452" y="143" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587403114065">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1452" y="143" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587403114065" />
-    <state width="1398" height="184" key="GridCell.Tab.0.bottom" timestamp="1587403079366">
+    <state x="-1677" y="-147" key="CommitChangelistDialog2" timestamp="1587403181714">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1398" height="184" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587403079366" />
-    <state width="1398" height="184" key="GridCell.Tab.0.center" timestamp="1587403079365">
+    <state x="-1677" y="-147" key="CommitChangelistDialog2/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587403181714" />
+    <state width="1398" height="184" key="GridCell.Tab.0.bottom" timestamp="1587403913120">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1398" height="184" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587403079365" />
-    <state width="1398" height="184" key="GridCell.Tab.0.left" timestamp="1587403079364">
+    <state width="1398" height="184" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587403913120" />
+    <state width="1398" height="184" key="GridCell.Tab.0.center" timestamp="1587403913119">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1398" height="184" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587403079364" />
-    <state width="1398" height="184" key="GridCell.Tab.0.right" timestamp="1587403079365">
+    <state width="1398" height="184" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587403913119" />
+    <state width="1398" height="184" key="GridCell.Tab.0.left" timestamp="1587403913118">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1398" height="184" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587403079365" />
+    <state width="1398" height="184" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587403913118" />
+    <state width="1398" height="184" key="GridCell.Tab.0.right" timestamp="1587403913119">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1398" height="184" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587403913119" />
   </component>
   <component name="masterDetails">
     <states>

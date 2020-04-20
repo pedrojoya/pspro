@@ -14,14 +14,12 @@ public class Account {
         synchronized (this) {
             balance += amount;
         }
-        System.out.print(".");
     }
 
     public void debit(int amount) {
         synchronized (this) {
             balance -= amount;
         }
-        System.out.print(".");
     }
 
 }
