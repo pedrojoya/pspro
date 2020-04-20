@@ -10,16 +10,16 @@ public class Account {
         return balance;
     }
 
-    // Try and remove synchronized keyword and see what happens.
-    public synchronized void deposit(float amount) {
+    // Try to remove synchronized keyword and see what happens.
+    public void deposit(float amount) {
         balance += amount;
-        System.out.print(".");
+//        System.out.print(".");
     }
 
-    // Try and remove synchronized keyword and see what happens.
-    public synchronized void debit(float amount) {
+    // Try to remove synchronized keyword and see what happens.
+    public void debit(float amount) {
         balance -= amount;
-        System.out.print(".");
+//        System.out.print(".");
     }
 
 }
