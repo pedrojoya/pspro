@@ -1,17 +1,15 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
-import java.util.Random;
 import java.util.concurrent.Phaser;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class Friend implements Runnable {
 
     private final String name;
     private final Phaser phaser;
-    private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
-    private final Random random = new Random();
+    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     public Friend(String name, Phaser phaser) {
         Objects.requireNonNull(name);
@@ -68,30 +66,30 @@ public class Friend implements Runnable {
 
     private void goToPub() throws InterruptedException {
         System.out.printf("%s -> %s is leaving home\n",
-                simpleDateFormat.format(new Date()), name);
-        TimeUnit.SECONDS.sleep(random.nextInt(5) + 1);
+                LocalTime.now().format(dateTimeFormatter), name);
+        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
         System.out.printf("%s -> %s has arrived in the pub\n",
-                simpleDateFormat.format(new Date()), name);
+                LocalTime.now().format(dateTimeFormatter), name);
     }
 
     private void firstBeerInPub() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(random.nextInt(5) + 1);
+        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
         System.out.printf("%s -> %s has finished the first beer\n",
-                simpleDateFormat.format(new Date()), name);
+                LocalTime.now().format(dateTimeFormatter), name);
     }
 
     private void secondBeerInPub() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(random.nextInt(5) + 1);
+        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
         System.out.printf("%s -> %s has finished the second beer\n",
-                simpleDateFormat.format(new Date()), name);
+                LocalTime.now().format(dateTimeFormatter), name);
     }
 
     private void goHome() throws InterruptedException {
         System.out.printf("%s -> %s is leaving the pub\n",
-                simpleDateFormat.format(new Date()), name);
-        TimeUnit.SECONDS.sleep(random.nextInt(5) + 1);
+                LocalTime.now().format(dateTimeFormatter), name);
+        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
         System.out.printf("%s -> %s is at home\n",
-                simpleDateFormat.format(new Date()), name);
+                LocalTime.now().format(dateTimeFormatter), name);
     }
 
 }

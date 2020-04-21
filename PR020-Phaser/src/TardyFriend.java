@@ -1,17 +1,15 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.Objects;
-import java.util.Random;
 import java.util.concurrent.Phaser;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class TardyFriend implements Runnable {
 
     private final String name;
     private final Phaser phaser;
-    private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss", Locale.getDefault());
-    private final Random random = new Random();
+    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
     public TardyFriend(String name, Phaser phaser) {
         Objects.requireNonNull(name);
@@ -25,7 +23,7 @@ public class TardyFriend implements Runnable {
         if (!phaser.isTerminated()) {
             int joinPhase = phaser.register();
             System.out.printf("%s -> %s has joined friends in phase #%d\n",
-                    simpleDateFormat.format(new Date()), name, joinPhase);
+                    LocalTime.now().format(dateTimeFormatter), name, joinPhase);
             try {
                 goToPub();
             } catch (InterruptedException e) {
@@ -78,43 +76,43 @@ public class TardyFriend implements Runnable {
             }
         } else {
             System.out.printf("%s -> %s called his friends too late\n",
-                    simpleDateFormat.format(new Date()), name);
+                    LocalTime.now().format(dateTimeFormatter), name);
         }
     }
 
     private void goToPub() throws InterruptedException {
         System.out.printf("%s -> %s is leaving home\n",
-                simpleDateFormat.format(new Date()), name);
-        TimeUnit.SECONDS.sleep(random.nextInt(5) + 1);
+                LocalTime.now().format(dateTimeFormatter), name);
+        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
         System.out.printf("%s -> %s has arrived in the pub\n",
-                simpleDateFormat.format(new Date()), name);
+                LocalTime.now().format(dateTimeFormatter), name);
     }
 
     private void firstBeerInPub() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(random.nextInt(5) + 1);
+        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
         System.out.printf("%s -> %s has finished the first beer\n",
-                simpleDateFormat.format(new Date()), name);
+                LocalTime.now().format(dateTimeFormatter), name);
     }
 
     private void secondBeerInPub() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(random.nextInt(5) + 1);
+        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
         System.out.printf("%s -> %s has finished the second beer\n",
-                simpleDateFormat.format(new Date()), name);
+                LocalTime.now().format(dateTimeFormatter), name);
     }
 
     private void goHome() throws InterruptedException {
         System.out.printf("%s -> %s is leaving the pub\n",
-                simpleDateFormat.format(new Date()), name);
-        TimeUnit.SECONDS.sleep(random.nextInt(5) + 1);
+                LocalTime.now().format(dateTimeFormatter), name);
+        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
         System.out.printf("%s -> %s is at home\n",
-                simpleDateFormat.format(new Date()), name);
+                LocalTime.now().format(dateTimeFormatter), name);
     }
 
     @SuppressWarnings("unused")
     private void awaitPhase(Phaser phaser, int currentPhase, int expectedPhase) {
         while (currentPhase < expectedPhase && !phaser.isTerminated()) {
             System.out.printf("%s -> %s is waiting phase #%d to finish\n",
-                    simpleDateFormat.format(new Date()), name, currentPhase);
+                    LocalTime.now().format(dateTimeFormatter), name, currentPhase);
             currentPhase = phaser.arriveAndAwaitAdvance();
         }
     }
