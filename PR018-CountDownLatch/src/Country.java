@@ -1,4 +1,4 @@
-import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
 public class Country implements Runnable {
@@ -6,7 +6,6 @@ public class Country implements Runnable {
     private final int participants;
     private final String countryName;
     private final Meeting meeting;
-    private final Random random = new Random();
 
     public Country(int participants, Meeting meeting, String countryName) {
         if (participants < 1 || meeting == null || countryName == null) {
@@ -34,11 +33,11 @@ public class Country implements Runnable {
     }
 
     private void goToMeeting() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(random.nextInt(5));
+        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5));
     }
 
     private void makeProposals() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(random.nextInt(3));
+        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(3));
         meeting.propose(countryName);
     }
 
