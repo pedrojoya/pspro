@@ -1,5 +1,5 @@
-import java.text.SimpleDateFormat;
-import java.util.Date;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReadWriteLock;
@@ -8,7 +8,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 public class Product {
 
     private double price;
-    private final SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm:ss");
+    private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
     private final ReadWriteLock reentrantReadWriteLock = new ReentrantReadWriteLock();
     private final Lock readLock = reentrantReadWriteLock.readLock();
     private final Lock writeLock = reentrantReadWriteLock.writeLock();
@@ -28,11 +28,11 @@ public class Product {
 
     private double consultPrice() throws InterruptedException {
         System.out.printf("%s -> %s - Consulting price...\n",
-                simpleDateFormat.format(new Date()),
+                LocalTime.now().format(dateTimeFormatter),
                 Thread.currentThread().getName());
         TimeUnit.SECONDS.sleep(3);
         System.out.printf("%s -> %s - Price: %.2f\n",
-                simpleDateFormat.format(new Date()),
+                LocalTime.now().format(dateTimeFormatter),
                 Thread.currentThread().getName(),
                 price);
         return price;
@@ -49,12 +49,12 @@ public class Product {
 
     private void incrementPrice(double increment) throws InterruptedException {
         System.out.printf("%s -> %s - Updating price...\n",
-                simpleDateFormat.format(new Date()),
+                LocalTime.now().format(dateTimeFormatter),
                 Thread.currentThread().getName());
             TimeUnit.SECONDS.sleep(1);
         this.price += increment;
         System.out.printf("%s -> %s - New price: %.2f\n",
-                simpleDateFormat.format(new Date()),
+                LocalTime.now().format(dateTimeFormatter),
                 Thread.currentThread().getName(),
                 this.price);
     }
