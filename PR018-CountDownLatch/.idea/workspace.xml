@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a9f3abb8-9d88-4b9d-8374-fb737c288a72" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR011-MovieTheater/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR011-MovieTheater/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR012-WaitNotify/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR012-WaitNotify/.idea/workspace.xml" afterDir="false" />
@@ -11,12 +10,6 @@
       <change beforePath="$PROJECT_DIR$/../PR015-ReadWriteLock/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR015-ReadWriteLock/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR016-StampedLock/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR016-StampedLock/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR017-Semaphore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR017-Semaphore/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR018-CountDownLatch/Country.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR018-CountDownLatch/Country.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR018-CountDownLatch/Meeting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR018-CountDownLatch/Meeting.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meeting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/cryptography.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/cryptography.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/META-INF/cryptography.kotlin_module" beforeDir="false" />
@@ -114,18 +107,55 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543821989559</updated>
-      <workItem from="1587463728701" duration="1688000" />
+      <workItem from="1587463728701" duration="1720000" />
     </task>
+    <task id="LOCAL-00001" summary="PR018-CountDownLatch - Use Java 8 time api">
+      <created>1587468257304</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587468257304</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="PR018-CountDownLatch - Use Java 8 time api" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR018-CountDownLatch - Use Java 8 time api" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1212" y="233" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587467061111">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1212" y="233" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587467061111" />
+    <state x="-1408" y="-57" key="CommitChangelistDialog2" timestamp="1587468257160">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state x="-1408" y="-57" key="CommitChangelistDialog2/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587468257160" />
+    <state width="1878" height="289" key="GridCell.Tab.0.bottom" timestamp="1587468262429">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="289" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587468262429" />
+    <state width="1878" height="289" key="GridCell.Tab.0.center" timestamp="1587468262428">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="289" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587468262428" />
+    <state width="1878" height="289" key="GridCell.Tab.0.left" timestamp="1587468262428">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="289" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587468262428" />
+    <state width="1878" height="289" key="GridCell.Tab.0.right" timestamp="1587468262428">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="289" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587468262428" />
   </component>
   <component name="masterDetails">
     <states>

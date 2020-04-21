@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90196fd3-b392-4d9a-873a-acb7ac70d836" name="Default" comment="">
+    <list default="true" id="90196fd3-b392-4d9a-873a-acb7ac70d836" name="Default" comment="PR019-CyclicBarrier - Use Java 8 time api">
       <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR011-MovieTheater/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR011-MovieTheater/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR012-WaitNotify/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR012-WaitNotify/.idea/workspace.xml" afterDir="false" />
@@ -11,7 +11,7 @@
       <change beforePath="$PROJECT_DIR$/../PR016-StampedLock/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR016-StampedLock/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR017-Semaphore/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR017-Semaphore/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR018-CountDownLatch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR018-CountDownLatch/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/OpenedBarrierAction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/OpenedBarrierAction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/cryptography.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/cryptography.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/META-INF/cryptography.kotlin_module" beforeDir="false" />
@@ -48,6 +48,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -108,12 +109,39 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543836895316</updated>
-      <workItem from="1587468287506" duration="47000" />
+      <workItem from="1587468287506" duration="845000" />
     </task>
+    <task id="LOCAL-00001" summary="PR019-CyclicBarrier - Use Java 8 time api">
+      <created>1587468494013</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587468494013</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="PR019-CyclicBarrier - Use Java 8 time api" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR019-CyclicBarrier - Use Java 8 time api" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1212" y="233" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587468460062">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state x="-1212" y="233" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587468460062" />
+    <state x="-1378" y="-57" key="CommitChangelistDialog2" timestamp="1587469133794">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state x="-1378" y="-57" key="CommitChangelistDialog2/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587469133794" />
   </component>
   <component name="masterDetails">
     <states>

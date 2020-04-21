@@ -14,12 +14,10 @@ public class Account {
 
     public void deposit(long amount) {
         balance.addAndGet(amount);
-        System.out.print(".");
     }
 
     public void debit(long amount) {
         balance.addAndGet(-amount);
-        System.out.print(".");
     }
 
 }

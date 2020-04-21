@@ -19,8 +19,6 @@
       <change beforePath="$PROJECT_DIR$/../PR020-Phaser/out/production/PR020-Phaser/META-INF/PR020-Phaser.kotlin_module" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR020-Phaser/out/production/PR020-Phaser/OneBeerFriend.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR020-Phaser/out/production/PR020-Phaser/OneBeerFriend.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR020-Phaser/out/production/PR020-Phaser/TardyFriend.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR020-Phaser/out/production/PR020-Phaser/TardyFriend.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DoughnutProducer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DoughnutProducer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/cryptography.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/cryptography.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/META-INF/cryptography.kotlin_module" beforeDir="false" />
@@ -50,6 +48,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
@@ -110,34 +109,55 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543952808362</updated>
-      <workItem from="1587473652284" duration="850000" />
+      <workItem from="1587473652284" duration="898000" />
     </task>
+    <task id="LOCAL-00001" summary="PR021-AtomicLong - Use ThreadLocalRandom nstead of Random">
+      <created>1587480475356</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587480475356</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="PR021-AtomicLong - Use ThreadLocalRandom nstead of Random" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR021-AtomicLong - Use ThreadLocalRandom nstead of Random" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1212" y="233" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587473686396">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
     <state x="-1212" y="233" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587473686396" />
-    <state width="1878" height="479" key="GridCell.Tab.0.bottom" timestamp="1587473710760">
+    <state x="-1373" y="-57" key="CommitChangelistDialog2" timestamp="1587480475098">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="479" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587473710760" />
-    <state width="1878" height="479" key="GridCell.Tab.0.center" timestamp="1587473710759">
+    <state x="-1373" y="-57" key="CommitChangelistDialog2/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587480475098" />
+    <state width="1878" height="479" key="GridCell.Tab.0.bottom" timestamp="1587480480674">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="479" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587473710759" />
-    <state width="1878" height="479" key="GridCell.Tab.0.left" timestamp="1587473710759">
+    <state width="1878" height="479" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587480480674" />
+    <state width="1878" height="479" key="GridCell.Tab.0.center" timestamp="1587480480673">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="479" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587473710759" />
-    <state width="1878" height="479" key="GridCell.Tab.0.right" timestamp="1587473710760">
+    <state width="1878" height="479" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587480480673" />
+    <state width="1878" height="479" key="GridCell.Tab.0.left" timestamp="1587480480672">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>
-    <state width="1878" height="479" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587473710760" />
+    <state width="1878" height="479" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587480480672" />
+    <state width="1878" height="479" key="GridCell.Tab.0.right" timestamp="1587480480673">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="479" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587480480673" />
   </component>
   <component name="masterDetails">
     <states>

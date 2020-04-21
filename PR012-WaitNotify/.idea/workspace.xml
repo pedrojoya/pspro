@@ -2,12 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="176308e7-c1a6-4e28-b054-4781d24eea1d" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cryptography/src/es/iessaladillo/pedrojoya/crypto/hash/HashUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../cryptography/src/es/iessaladillo/pedrojoya/crypto/symmetric/SymmetricUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../PR011-MovieTheater/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR011-MovieTheater/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/cryptography.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/cryptography.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/META-INF/cryptography.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/es/iessaladillo/pedrojoya/crypto/asymmetric/AsymmetricEncriptionUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/target/classes/es/iessaladillo/pedrojoya/crypto/asymmetric/AsymmetricEncriptionUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/es/iessaladillo/pedrojoya/crypto/hash/HashUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/target/classes/es/iessaladillo/pedrojoya/crypto/hash/HashUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/es/iessaladillo/pedrojoya/crypto/signing/SignatureUtilities.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/target/classes/es/iessaladillo/pedrojoya/crypto/signing/SignatureUtilities.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/es/iessaladillo/pedrojoya/crypto/symmetric/SymmetricEncryptionUtils.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/target/classes/es/iessaladillo/pedrojoya/crypto/symmetric/SymmetricEncryptionUtils.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/target/test-classes/META-INF/cryptography.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/target/test-classes/es/iessaladillo/pedrojoya/crypto/asymmetric/AsymmetricEncriptionUtilsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/target/test-classes/es/iessaladillo/pedrojoya/crypto/asymmetric/AsymmetricEncriptionUtilsTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/target/test-classes/es/iessaladillo/pedrojoya/crypto/hash/HashUtilsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/target/test-classes/es/iessaladillo/pedrojoya/crypto/hash/HashUtilsTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/target/test-classes/es/iessaladillo/pedrojoya/crypto/signing/SignatureUtilitiesTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/target/test-classes/es/iessaladillo/pedrojoya/crypto/signing/SignatureUtilitiesTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../cryptography/target/test-classes/es/iessaladillo/pedrojoya/crypto/symmetric/SymmetricEncryptionUtilsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/target/test-classes/es/iessaladillo/pedrojoya/crypto/symmetric/SymmetricEncryptionUtilsTest.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -23,14 +33,13 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectFrameBounds">
-    <option name="x" value="960" />
-    <option name="y" value="23" />
-    <option name="width" value="960" />
-    <option name="height" value="1057" />
-  </component>
   <component name="ProjectId" id="1Rseqqj4eXKPZOqsqspY6O7RDuO" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="autoscrollFromSource" value="true" />
+    <option name="autoscrollToSource" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -41,18 +50,6 @@
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager">
     <configuration default="true" type="Applet">
@@ -108,11 +105,12 @@
       <option name="presentableId" value="Default" />
       <updated>1543673719599</updated>
       <workItem from="1570460427904" duration="621000" />
+      <workItem from="1587452881322" duration="1373000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="2" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -124,6 +122,13 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1373" y="-57" key="CommitChangelistDialog2" timestamp="1587457314757">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state x="-1373" y="-57" key="CommitChangelistDialog2/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587457314757" />
   </component>
   <component name="masterDetails">
     <states>

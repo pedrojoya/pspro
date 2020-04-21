@@ -2,17 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2b990fb4-4529-410e-816b-625edfe4f76c" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR009-SynchronizedMethod/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR009-SynchronizedMethod/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR010-SynchronizedSentence/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR010-SynchronizedSentence/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR010-SynchronizedSentence/AccountConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR010-SynchronizedSentence/AccountConsumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR010-SynchronizedSentence/AccountSaver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR010-SynchronizedSentence/AccountSaver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR010-SynchronizedSentence/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR010-SynchronizedSentence/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Account.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Account.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountConsumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountConsumer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/AccountSaver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AccountSaver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/cryptography.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/cryptography.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/META-INF/cryptography.kotlin_module" beforeDir="false" />
@@ -108,13 +97,35 @@
       <option name="presentableId" value="Default" />
       <updated>1543556925618</updated>
       <workItem from="1587403226153" duration="687000" />
+      <workItem from="1587403945751" duration="71000" />
     </task>
+    <task id="LOCAL-00001" summary="PR010-SynchronizedSentence - Use Java 8 time library">
+      <created>1587404007080</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587404007080</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_NEW_TODO" value="false" />
+    <MESSAGE value="PR010-SynchronizedSentence - Use Java 8 time library" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR010-SynchronizedSentence - Use Java 8 time library" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="-969" y="-57" key="CommitChangelistDialog2" timestamp="1587404006912">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state x="-969" y="-57" key="CommitChangelistDialog2/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587404006912" />
     <state width="918" height="234" key="GridCell.Tab.0.bottom" timestamp="1587403914972">
       <screen x="-1920" y="-157" width="1920" height="1057" />
     </state>

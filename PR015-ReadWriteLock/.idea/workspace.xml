@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="1a3c15dd-4a7c-441e-ac0c-b8493205a842" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+    <list default="true" id="1a3c15dd-4a7c-441e-ac0c-b8493205a842" name="Default" comment="PR015-ReadWriteLock - Use Java 8 time api">
       <change beforePath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR010-SynchronizedSentence/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR011-MovieTheater/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR011-MovieTheater/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR012-WaitNotify/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR012-WaitNotify/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR013-ReentrantLock/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR013-ReentrantLock/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../PR014-Condition/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR014-Condition/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/cryptography.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../cryptography/cryptography.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../cryptography/target/classes/META-INF/cryptography.kotlin_module" beforeDir="false" />
@@ -114,12 +111,50 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1543737529393</updated>
-      <workItem from="1587460609853" duration="240000" />
+      <workItem from="1587460609853" duration="999000" />
     </task>
+    <task id="LOCAL-00001" summary="PR015-ReadWriteLock - Use Java 8 time api">
+      <created>1587460916969</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1587460916969</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="PR015-ReadWriteLock - Use Java 8 time api" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR015-ReadWriteLock - Use Java 8 time api" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1212" y="233" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1587460865060">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state x="-1212" y="233" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587460865060" />
+    <state x="-1392" y="-57" key="CommitChangelistDialog2" timestamp="1587461609044">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state x="-1392" y="-57" key="CommitChangelistDialog2/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587461609044" />
+    <state width="1878" height="289" key="GridCell.Tab.0.bottom" timestamp="1587461610882">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="289" key="GridCell.Tab.0.bottom/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587461610882" />
+    <state width="1878" height="289" key="GridCell.Tab.0.center" timestamp="1587461610880">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="289" key="GridCell.Tab.0.center/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587461610880" />
+    <state width="1878" height="289" key="GridCell.Tab.0.left" timestamp="1587461610880">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="289" key="GridCell.Tab.0.left/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587461610880" />
+    <state width="1878" height="289" key="GridCell.Tab.0.right" timestamp="1587461610881">
+      <screen x="-1920" y="-157" width="1920" height="1057" />
+    </state>
+    <state width="1878" height="289" key="GridCell.Tab.0.right/0.23.1440.877/-1920.-157.1920.1057@-1920.-157.1920.1057" timestamp="1587461610881" />
   </component>
   <component name="masterDetails">
     <states>
