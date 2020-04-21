@@ -46,7 +46,7 @@ public class DoughnutProducer implements Runnable {
     }
 
     private int makeDoughnut() throws InterruptedException {
-        Integer doughnut = ++doughnutNumber;
+        int doughnut = ++doughnutNumber;
         TimeUnit.SECONDS.sleep(1);
         return doughnut;
     }
