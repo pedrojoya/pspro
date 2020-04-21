@@ -15,9 +15,8 @@ public class AccountSaver implements Runnable {
         try {
             varHandle = MethodHandles.lookup().in(Account.class)
                     .findVarHandle(Account.class, "balance", double.class);
-            for (int i = 0; i < 10000; i++) {
+            for (int i = 0; i < 100000; i++) {
                 varHandle.getAndAdd(account, 10);
-                System.out.print(".");
             }
         } catch (NoSuchFieldException | IllegalAccessException e) {
             e.printStackTrace();
