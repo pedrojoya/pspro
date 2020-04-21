@@ -2,8 +2,8 @@ public class Cinema {
 
     private final int[] movieTheatersCapacity;
     private final int boxOffices;
-    private int[] availableSeats;
-    private Object[] movieTheatersLock;
+    private final int[] availableSeats;
+    private final Object[] movieTheatersLock;
 
     public Cinema(int[] movieTheatersCapacity, int boxOffices) {
         if (movieTheatersCapacity == null || boxOffices < 1) {

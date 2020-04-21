@@ -4,7 +4,7 @@ public class Main {
     private static final int MOVIE_THEATER_CAPACITY = 20;
 
     public static void main(String[] args) {
-        int movieTheaters[] = { MOVIE_THEATER_CAPACITY, MOVIE_THEATER_CAPACITY };
+        int[] movieTheaters = {MOVIE_THEATER_CAPACITY, MOVIE_THEATER_CAPACITY};
         Cinema cinema = new Cinema(movieTheaters, BOX_OFFICES);
         Thread boxOffice1Thread = new Thread(new BoxOffice1Queue(cinema, 1), "Box office 1");
         Thread boxOffice2Thread = new Thread(new BoxOffice2Queue(cinema, 2), "Box office 2");
