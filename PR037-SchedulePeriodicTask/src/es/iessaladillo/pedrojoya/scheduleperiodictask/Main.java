@@ -1,8 +1,11 @@
 package es.iessaladillo.pedrojoya.scheduleperiodictask;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.concurrent.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledFuture;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 class Main {
 
@@ -16,7 +19,7 @@ class Main {
                 scheduledExecutor.scheduleAtFixedRate(greetTask, 5, periodSeconds, TimeUnit.SECONDS);
         System.out.printf("%s -> %s - Greet task sent to be executed every %d seconds. Still %d seconds left to first ejecution\n",
                 Thread.currentThread().getName(),
-                dateTimeFormatter.format(LocalDateTime.now()),
+                dateTimeFormatter.format(LocalTime.now()),
                 periodSeconds,
                 greetScheduledFuture.getDelay(TimeUnit.SECONDS));
         int sleepSeconds = 25;
@@ -26,7 +29,7 @@ class Main {
         } finally {
             System.out.printf("%s -> %s - Executor shut down after %d seconds\n",
                     Thread.currentThread().getName(),
-                    dateTimeFormatter.format(LocalDateTime.now()),
+                    dateTimeFormatter.format(LocalTime.now()),
                     sleepSeconds);
             scheduledExecutor.shutdownNow();
         }

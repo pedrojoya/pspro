@@ -1,6 +1,6 @@
 package es.iessaladillo.pedrojoya.scheduleperiodictask;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 class GreetTask implements Runnable {
@@ -17,7 +17,7 @@ class GreetTask implements Runnable {
     public void run() {
         System.out.printf("%s -> %s - %s\n",
                 Thread.currentThread().getName(),
-                dateTimeFormatter.format(LocalDateTime.now()),
+                dateTimeFormatter.format(LocalTime.now()),
                 greet);
     }
 
