@@ -31,6 +31,7 @@ class Server {
         }
     }
 
+    @SuppressWarnings("unused")
     void shutdownNow() throws InterruptedException {
         fixedThreadPool.shutdownNow();
         if (fixedThreadPool.awaitTermination(5, TimeUnit.SECONDS)) {
