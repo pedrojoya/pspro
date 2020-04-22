@@ -1,6 +1,6 @@
 package es.iessaladillo.pedrojoya.futuretask;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -17,11 +17,11 @@ public class Main {
         Thread thread = new Thread(task1);
         System.out.printf("%s - %s - Task1 started\n",
                 Thread.currentThread().getName(),
-                dateTimeFormatter.format(LocalDateTime.now()));
+                dateTimeFormatter.format(LocalTime.now()));
         thread.start();
         System.out.printf("%s - %s - Task2 sent\n",
                 Thread.currentThread().getName(),
-                dateTimeFormatter.format(LocalDateTime.now()));
+                dateTimeFormatter.format(LocalTime.now()));
         executor.submit(task2);
         executor.shutdown();
         TimeUnit.SECONDS.sleep(2);

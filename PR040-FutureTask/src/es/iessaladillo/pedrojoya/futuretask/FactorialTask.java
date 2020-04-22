@@ -1,7 +1,6 @@
 package es.iessaladillo.pedrojoya.futuretask;
 
 import java.util.concurrent.Callable;
-import java.util.concurrent.FutureTask;
 import java.util.concurrent.TimeUnit;
 
 class FactorialTask implements Callable<Integer> {
