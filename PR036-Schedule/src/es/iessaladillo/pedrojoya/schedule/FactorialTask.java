@@ -1,6 +1,6 @@
 package es.iessaladillo.pedrojoya.schedule;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.Callable;
 import java.util.concurrent.TimeUnit;
@@ -19,7 +19,7 @@ class FactorialTask implements Callable<Integer> {
         Integer result = factorial(number);
         System.out.printf("%s -> %s - factorial(%d) calculated\n",
                 Thread.currentThread().getName(),
-                dateTimeFormatter.format(LocalDateTime.now()),
+                dateTimeFormatter.format(LocalTime.now()),
                 number);
         return result;
     }
