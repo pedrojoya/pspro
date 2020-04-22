@@ -1,6 +1,6 @@
 package es.iessaladillo.pedrojoya.executorcompletionservice;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.CompletionService;
 import java.util.concurrent.ThreadLocalRandom;
@@ -22,7 +22,7 @@ class TaskProducer implements Runnable {
     public void run() {
         for (int i = 0; i < 10; i++) {
             int value = ThreadLocalRandom.current().nextInt(15) - 5;
-            String when = dateTimeFormatter.format(LocalDateTime.now());
+            String when = dateTimeFormatter.format(LocalTime.now());
             System.out.printf("%s -> %s requests factorial(%d) at %s\n",
                     Thread.currentThread().getName(), name, value, when);
             completionService.submit(new Task(name, value, when));
