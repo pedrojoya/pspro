@@ -13,7 +13,7 @@ public class DoughnutProducer implements Runnable {
 
     @Override
     public void run() {
-        Integer doughnut;
+        int doughnut;
         while (!Thread.currentThread().isInterrupted()) {
             try {
                 doughnut = makeDoughnut();
