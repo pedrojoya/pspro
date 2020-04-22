@@ -10,6 +10,7 @@ public class LocalDatabase implements AuthenticationSystem {
         return "Local database";
     }
 
+    @SuppressWarnings("unused")
     @Override
     public boolean authenticate(String username, String password) throws InterruptedException {
         int searchDuration = ThreadLocalRandom.current().nextInt(5) + 1;

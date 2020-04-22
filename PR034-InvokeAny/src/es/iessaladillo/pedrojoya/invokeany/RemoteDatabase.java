@@ -3,6 +3,7 @@ package es.iessaladillo.pedrojoya.invokeany;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.concurrent.TimeUnit;
 
+@SuppressWarnings("unused")
 public class RemoteDatabase implements AuthenticationSystem {
 
     @Override
