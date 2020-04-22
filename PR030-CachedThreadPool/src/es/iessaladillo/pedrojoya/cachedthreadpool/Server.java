@@ -30,6 +30,7 @@ class Server {
         }
     }
 
+    @SuppressWarnings("unused")
     void shutdownNow() throws InterruptedException {
         cachedThreadPool.shutdownNow();
         if (cachedThreadPool.awaitTermination(5, TimeUnit.SECONDS)) {
