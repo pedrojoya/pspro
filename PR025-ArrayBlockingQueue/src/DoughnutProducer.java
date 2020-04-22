@@ -13,7 +13,7 @@ public class DoughnutProducer implements Runnable {
 
     @Override
     public void run() {
-        Integer doughnut;
+        int doughnut;
         while (!Thread.currentThread().isInterrupted()) {
             try {
                 doughnut = makeDoughnut();
@@ -32,7 +32,7 @@ public class DoughnutProducer implements Runnable {
     }
 
     private int makeDoughnut() throws InterruptedException {
-        Integer doughnut = ++doughnutNumber;
+        int doughnut = ++doughnutNumber;
         System.out.printf("Producer is making doughnut #%d\n", doughnut);
         TimeUnit.SECONDS.sleep(1);
         return doughnut;
