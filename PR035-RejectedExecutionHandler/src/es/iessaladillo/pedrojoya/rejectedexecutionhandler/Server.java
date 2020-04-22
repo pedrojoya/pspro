@@ -1,6 +1,9 @@
 package es.iessaladillo.pedrojoya.rejectedexecutionhandler;
 
-import java.util.concurrent.*;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 class Server {
 
@@ -29,6 +32,7 @@ class Server {
         fixedThreadPool.execute(task);
     }
 
+    @SuppressWarnings("unused")
     void shutdown() throws InterruptedException {
         fixedThreadPool.shutdown();
         if (fixedThreadPool.awaitTermination(5, TimeUnit.SECONDS)) {
