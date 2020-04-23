@@ -1,6 +1,6 @@
 package es.iessaladillo.pedrojoya.recursiveaction;
 
-import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.concurrent.RecursiveAction;
 
@@ -9,10 +9,10 @@ public class IncrementTask extends RecursiveAction {
     private final DateTimeFormatter dateTimeFormatter =
             DateTimeFormatter.ofPattern("HH:mm:ss:SSS");
 
-    private int[] values;
-    private int from;
-    private int to;
-    private int increment;
+    private final int[] values;
+    private final int from;
+    private final int to;
+    private final int increment;
 
     IncrementTask(int[] values, int from, int to,
                   int increment) {
@@ -37,7 +37,7 @@ public class IncrementTask extends RecursiveAction {
         int pivot = (to + from) / 2;
         System.out.printf("%s - %s - [%d,%d) split in [%d,%d) y [%d,%d)\n",
                 Thread.currentThread().getName(),
-                dateTimeFormatter.format(LocalDateTime.now()),
+                dateTimeFormatter.format(LocalTime.now()),
                 from, to, from, pivot, pivot, to);
         // Create two subtasks, one for each half.
         IncrementTask subTask1 = new IncrementTask(values, from, pivot, increment);
@@ -49,16 +49,17 @@ public class IncrementTask extends RecursiveAction {
         subTask2.join();
         System.out.printf("%s - %s - [%d, %d) and [%d, %d) joined. [%d, %d] done\n",
                 Thread.currentThread().getName(),
-                dateTimeFormatter.format(LocalDateTime.now()),
+                dateTimeFormatter.format(LocalTime.now()),
                 from, pivot, pivot, to, from, to);
     }
 
+    @SuppressWarnings("unused")
     private void applyStrategy2(int[] values, int from, int to, int increment) {
         // Split range in two.
         int pivot = (to + from) / 2;
         System.out.printf("%s - %s - [%d,%d) split in [%d,%d) y [%d,%d)\n",
                 Thread.currentThread().getName(),
-                dateTimeFormatter.format(LocalDateTime.now()),
+                dateTimeFormatter.format(LocalTime.now()),
                 from, to, from, pivot, pivot, to);
         IncrementTask subTask2 = new IncrementTask(values, pivot, to, increment);
         subTask2.fork();
@@ -66,7 +67,7 @@ public class IncrementTask extends RecursiveAction {
         subTask2.join();
         System.out.printf("%s - %s - [%d, %d) and [%d, %d) joined. [%d, %d] done\n",
                 Thread.currentThread().getName(),
-                dateTimeFormatter.format(LocalDateTime.now()),
+                dateTimeFormatter.format(LocalTime.now()),
                 from, pivot, pivot, to, from, to);
     }
 
@@ -76,7 +77,7 @@ public class IncrementTask extends RecursiveAction {
         }
         System.out.printf("%s - %s - [%d, %d) done secuentially\n",
                 Thread.currentThread().getName(),
-                dateTimeFormatter.format(LocalDateTime.now()),
+                dateTimeFormatter.format(LocalTime.now()),
                 from, to);
     }
 
