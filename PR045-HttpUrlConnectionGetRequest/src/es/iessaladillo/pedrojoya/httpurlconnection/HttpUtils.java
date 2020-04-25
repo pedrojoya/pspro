@@ -5,8 +5,8 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
-@SuppressWarnings("GrazieInspection")
 public class HttpUtils {
 
     private HttpUtils() {
@@ -20,11 +20,12 @@ public class HttpUtils {
             httpUrlConnection = (HttpURLConnection) url.openConnection();
             // 2. Setup request
             // 2.1. Request method.
-            httpUrlConnection.setRequestMethod(requestMethod);
             // PATCH method is not allowed as requesMethod, so is hacked as POST method.
             if ("PATCH".equals(requestMethod)) {
                 httpUrlConnection.setRequestProperty("X-HTTP-Method-Override", "PATCH");
                 httpUrlConnection.setRequestMethod("POST");
+            } else {
+                httpUrlConnection.setRequestMethod(requestMethod);
             }
             // 2.2. Request timeouts.
             httpUrlConnection.setConnectTimeout(timeout);
@@ -77,12 +78,8 @@ public class HttpUtils {
     private static String readInputStream(InputStream inputStream) throws IOException {
         try (BufferedReader bufferedReader =
                      new BufferedReader(new InputStreamReader(inputStream))) {
-            String inputLine;
-            StringBuilder stringBuilder = new StringBuilder();
-            while ((inputLine = bufferedReader.readLine()) != null) {
-                stringBuilder.append(inputLine);
-            }
-            return stringBuilder.toString();
+            return bufferedReader.lines().collect(Collectors.joining("\n"));
         }
     }
+
 }
