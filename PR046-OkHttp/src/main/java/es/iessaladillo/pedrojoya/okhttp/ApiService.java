@@ -4,8 +4,6 @@ import okhttp3.*;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.net.MalformedURLException;
-import java.net.URL;
 import java.util.concurrent.CompletableFuture;
 
 public class ApiService {
@@ -18,11 +16,10 @@ public class ApiService {
     }
 
     public Response getPostsSync() throws IOException {
-        URL url = buildUrl(BASE_URL + "posts");
         // 2. Create http request.
         Request request = new Request.Builder()
                 // 2.1. URL
-                .url(url)
+                .url(BASE_URL + "posts")
                 // 2.2. Request method.
                 .get()
                 .build();
@@ -33,9 +30,8 @@ public class ApiService {
     }
 
     public void getPostsWithCallback(Callback callback) {
-        URL url = buildUrl(BASE_URL + "posts");
         Request request = new Request.Builder()
-                .url(url)
+                .url(BASE_URL + "posts")
                 .get()
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -43,9 +39,8 @@ public class ApiService {
     }
 
     public CompletableFuture<Response> getPosts() {
-        URL url = buildUrl(BASE_URL + "posts");
         Request request = new Request.Builder()
-                .url(url)
+                .url(BASE_URL + "posts")
                 .get()
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -53,9 +48,8 @@ public class ApiService {
     }
 
     public CompletableFuture<Response> getPostsAccessOptions() {
-        URL url = buildUrl(BASE_URL + "posts");
         Request request = new Request.Builder()
-                .url(url)
+                .url(BASE_URL + "posts")
                 .method("OPTIONS", null)
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -63,9 +57,8 @@ public class ApiService {
     }
 
     public CompletableFuture<Response> getPostsHeaders() {
-        URL url = buildUrl(BASE_URL + "posts");
         Request request = new Request.Builder()
-                .url(url)
+                .url(BASE_URL + "posts")
                 .head()
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -73,9 +66,8 @@ public class ApiService {
     }
 
     public CompletableFuture<Response> getPost(int postId) {
-        URL url = buildUrl(BASE_URL + "posts/" + postId);
         Request request = new Request.Builder()
-                .url(url)
+                .url(BASE_URL + "posts/" + postId)
                 .get()
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -83,10 +75,9 @@ public class ApiService {
     }
 
     public CompletableFuture<Response> createPost(String jsonPost) {
-        URL url = buildUrl(BASE_URL + "posts");
         RequestBody requestBody = RequestBody.create(jsonPost, MediaType.get("application/json; charset=utf-8"));
         Request request = new Request.Builder()
-                .url(url)
+                .url(BASE_URL + "posts")
                 .post(requestBody)
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -94,10 +85,9 @@ public class ApiService {
     }
 
     public CompletableFuture<Response> updatePost(int postId, String jsonPost) {
-        URL url = buildUrl(BASE_URL + "posts/" + postId);
         RequestBody requestBody = RequestBody.create(jsonPost, MediaType.get("application/json; charset=utf-8"));
         Request request = new Request.Builder()
-                .url(url)
+                .url(BASE_URL + "posts/" + postId)
                 .put(requestBody)
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -105,10 +95,9 @@ public class ApiService {
     }
 
     public CompletableFuture<Response> patchPost(int postId, String jsonPost) {
-        URL url = buildUrl(BASE_URL + "posts/" + postId);
         RequestBody requestBody = RequestBody.create(jsonPost, MediaType.get("application/json; charset=utf-8"));
         Request request = new Request.Builder()
-                .url(url)
+                .url(BASE_URL + "posts/" + postId)
                 .post(requestBody)
                 .addHeader("X-HTTP-Method-Override", "PATCH")
                 .build();
@@ -117,9 +106,8 @@ public class ApiService {
     }
 
     public CompletableFuture<Response> deletePost(int postId) {
-        URL url = buildUrl(BASE_URL + "posts/" + postId);
         Request request = new Request.Builder()
-                .url(url)
+                .url(BASE_URL + "posts/" + postId)
                 .delete()
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -127,9 +115,8 @@ public class ApiService {
     }
 
     public CompletableFuture<Response> getUserPosts(int userId) {
-        URL url = buildUrl(BASE_URL + "users/" + userId + "/posts");
         Request request = new Request.Builder()
-                .url(url)
+                .url(BASE_URL + "users/" + userId + "/posts")
                 .get()
                 .build();
         Call call = okHttpClient.newCall(request);
@@ -137,17 +124,6 @@ public class ApiService {
     }
 
     // ---------------------------------------------------------
-
-    @NotNull
-    private URL buildUrl(String urlString) {
-        URL url;
-        try {
-            url = new URL(urlString);
-        } catch (MalformedURLException e) {
-            throw new IllegalArgumentException("Malformed URL");
-        }
-        return url;
-    }
 
     private CompletableFuture<Response> executeAsync(Call call) {
         CompletableFuture<Response> cf = new CompletableFuture<>();

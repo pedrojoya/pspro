@@ -10,6 +10,10 @@ import java.util.concurrent.TimeUnit;
 @SuppressWarnings("SameParameterValue")
 public class Main {
 
+    public static void main(String[] args) {
+        new Main();
+    }
+
     // 1. Create Http client.
     private final OkHttpClient okHttpClient = new OkHttpClient().newBuilder()
             // 1.1. Request timeouts.
@@ -24,29 +28,6 @@ public class Main {
         processOption(selectedOption);
         okHttpClient.connectionPool().evictAll();
         okHttpClient.dispatcher().executorService().shutdownNow();
-    }
-
-    public static void main(String[] args) {
-        new Main();
-    }
-
-    private static void showResponse(Response response) {
-        // 4.1. Response code.
-        System.out.print(response.code());
-        // 4.2. Response message.
-        System.out.println(" " + response.message());
-        // 4.2. Response headers.
-        response.headers().forEach(header -> System.out.println(header.component1() + ": " + header.component2()));
-        if (response.isSuccessful()) {
-            // 4.3 Response body
-            try {
-                ResponseBody responseBody = response.body();
-                if (responseBody != null) {
-                    System.out.println("\n" + responseBody.string());
-                }
-            } catch (IOException ignored) {
-            }
-        }
     }
 
     private int showMenu() {
@@ -68,6 +49,63 @@ public class Main {
         } catch (Exception e) {
             scanner.nextLine();
             return 0;
+        }
+    }
+
+    private static void showResponse(Response response) {
+        // 4.1. Response code.
+        System.out.print(response.code());
+        // 4.2. Response message.
+        System.out.println(" " + response.message());
+        // 4.2. Response headers.
+        response.headers().forEach(header -> System.out.println(header.component1() + ": " + header.component2()));
+        if (response.isSuccessful()) {
+            // 4.3 Response body
+            try {
+                ResponseBody responseBody = response.body();
+                if (responseBody != null) {
+                    System.out.println("\n" + responseBody.string());
+                }
+            } catch (IOException ignored) {
+            }
+        }
+    }
+
+    private void processOption(int selectedOption) {
+        switch (selectedOption) {
+            case 1:
+                showPostsSync();
+                break;
+            case 2:
+                showPostsWithCallback();
+                break;
+            case 3:
+                showPosts();
+                break;
+            case 4:
+                showPost(1);
+                break;
+            case 5:
+                showUserPosts(1);
+                break;
+            case 6:
+                createPost("{\"title\": \"Baldomero\", \"body\": \"Llegate Ligero\", \"userId\": 1}");
+                break;
+            case 7:
+                updatePost(1, "{\"id\": 1, \"title\": \"Baldomero\", \"body\": \"Llegate Ligero\", \"userId\": 1}");
+                break;
+            case 8:
+                patchPost(1, "{\"title\": \"Baldomero\"}");
+                break;
+            case 9:
+                deletePost(1);
+                break;
+            case 10:
+                showPostsHeaders();
+                break;
+            case 11:
+                showPostsAccessOptions();
+                break;
         }
     }
 
@@ -137,44 +175,6 @@ public class Main {
             showError(throwable);
         } else {
             showResponse(response);
-        }
-    }
-
-    private void processOption(int selectedOption) {
-        switch (selectedOption) {
-            case 1:
-                showPostsSync();
-                break;
-            case 2:
-                showPostsWithCallback();
-                break;
-            case 3:
-                showPosts();
-                break;
-            case 4:
-                showPost(1);
-                break;
-            case 5:
-                showUserPosts(1);
-                break;
-            case 6:
-                createPost("{\"title\": \"Baldomero\", \"body\": \"Llegate Ligero\", \"userId\": 1}");
-                break;
-            case 7:
-                updatePost(1, "{\"id\": 1, \"title\": \"Baldomero\", \"body\": \"Llegate Ligero\", \"userId\": 1}");
-                break;
-            case 8:
-                patchPost(1, "{\"title\": \"Baldomero\"}");
-                break;
-            case 9:
-                deletePost(1);
-                break;
-            case 10:
-                showPostsHeaders();
-                break;
-            case 11:
-                showPostsAccessOptions();
-                break;
         }
     }
 
