@@ -17,61 +17,55 @@ public class ApiService {
     }
 
     public HttpResponse<String> getPostsSync() throws IOException, InterruptedException {
-        URI uri = URI.create(BASE_URL + "posts");
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .GET()
-                .uri(uri)
+                .uri(URI.create(BASE_URL + "posts"))
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
         return httpClient.send(httpRequest, bodyHandler);
     }
 
     public CompletableFuture<HttpResponse<String>> getPosts() {
-        URI uri = URI.create(BASE_URL + "posts");
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .GET()
-                .uri(uri)
+                .uri(URI.create(BASE_URL + "posts"))
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
         return httpClient.sendAsync(httpRequest, bodyHandler);
     }
 
     public CompletableFuture<HttpResponse<String>> getPostsHeaders() {
-        URI uri = URI.create(BASE_URL + "posts");
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .method("HEAD", HttpRequest.BodyPublishers.noBody())
-                .uri(uri)
+                .uri(URI.create(BASE_URL + "posts"))
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
         return httpClient.sendAsync(httpRequest, bodyHandler);
     }
 
     public CompletableFuture<HttpResponse<String>> getPostsAccessOptions() {
-        URI uri = URI.create(BASE_URL + "posts");
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .method("OPTIONS", HttpRequest.BodyPublishers.noBody())
-                .uri(uri)
+                .uri(URI.create(BASE_URL + "posts"))
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
         return httpClient.sendAsync(httpRequest, bodyHandler);
     }
 
     public CompletableFuture<HttpResponse<String>> getPost(int postId) {
-        URI uri = URI.create(BASE_URL + "posts/" + postId);
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .GET()
-                .uri(uri)
+                .uri(URI.create(BASE_URL + "posts/" + postId))
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
         return httpClient.sendAsync(httpRequest, bodyHandler);
     }
 
     public CompletableFuture<HttpResponse<String>> createPost(String jsonPost) {
-        URI uri = URI.create(BASE_URL + "posts");
         HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.ofString(jsonPost);
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .POST(bodyPublisher)
-                .uri(uri)
+                .uri(URI.create(BASE_URL + "posts"))
                 .header("Content-Type", "application/json; charset=utf-8")
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
@@ -79,11 +73,10 @@ public class ApiService {
     }
 
     public CompletableFuture<HttpResponse<String>> updatePost(int postId, String jsonPost) {
-        URI uri = URI.create(BASE_URL + "posts/" + postId);
         HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.ofString(jsonPost);
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .PUT(bodyPublisher)
-                .uri(uri)
+                .uri(URI.create(BASE_URL + "posts/" + postId))
                 .header("Content-Type", "application/json; charset=utf-8")
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
@@ -91,11 +84,10 @@ public class ApiService {
     }
 
     public CompletableFuture<HttpResponse<String>> patchPost(int postId, String jsonPost) {
-        URI uri = URI.create(BASE_URL + "posts/" + postId);
         HttpRequest.BodyPublisher bodyPublisher = HttpRequest.BodyPublishers.ofString(jsonPost);
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .method("PATCH", bodyPublisher)
-                .uri(uri)
+                .uri(URI.create(BASE_URL + "posts/" + postId))
                 .header("Content-Type", "application/json; charset=utf-8")
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
@@ -103,20 +95,18 @@ public class ApiService {
     }
 
     public CompletableFuture<HttpResponse<String>> deletePost(int postId) {
-        URI uri = URI.create(BASE_URL + "posts/" + postId);
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .DELETE()
-                .uri(uri)
+                .uri(URI.create(BASE_URL + "posts/" + postId))
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
         return httpClient.sendAsync(httpRequest, bodyHandler);
     }
 
     public CompletableFuture<HttpResponse<String>> getUserPosts(int userId) {
-        URI uri = URI.create(BASE_URL + "users/" + userId + "/posts");
         HttpRequest httpRequest = HttpRequest.newBuilder()
                 .GET()
-                .uri(uri)
+                .uri(URI.create(BASE_URL + "users/" + userId + "/posts"))
                 .build();
         HttpResponse.BodyHandler<String> bodyHandler = HttpResponse.BodyHandlers.ofString();
         return httpClient.sendAsync(httpRequest, bodyHandler);
