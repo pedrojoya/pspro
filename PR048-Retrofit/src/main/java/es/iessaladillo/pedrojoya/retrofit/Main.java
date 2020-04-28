@@ -13,32 +13,86 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 import java.io.IOException;
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class Main {
 
     private final ApiService apiService = createApiService();
-    private final ApiService swapiService = createSwapiService();
+    private final Scanner scanner = new Scanner(System.in);
+
+    Main() {
+        int selectedOption = showMenu();
+        processOption(selectedOption);
+    }
 
     public static void main(String[] args) {
         new Main();
     }
 
-    public Main() {
-        showPostsSync();
-        showPostsWithCallback();
-        showPosts();
-        showPostsHeaders();
-        showPostsAccessOptions();
-        showPost(1);
-        createPost(new PostResponse(1, 0, "Baldomero", "Llégate Ligero"));
-        updatePost(1, new PostResponse(1, 1, "Baldomero", "Llégate Ligero"));
-        patchPost(1, new PostResponse(3, 1, "Baldomero", "Llégate Ligero"));
-        deletePost(1);
-        showUserPosts(1);
-        showPostsByUser(1);
+    private int showMenu() {
+        System.out.println("\nMENU");
+        System.out.println("1. Show all posts synchronously");
+        System.out.println("2. Show all posts with callback");
+        System.out.println("3. Show all posts");
+        System.out.println("4. Show post");
+        System.out.println("5. Show user's posts");
+        System.out.println("6. Show posts by user");
+        System.out.println("7. Create post");
+        System.out.println("8. Update post");
+        System.out.println("9. Update post partially");
+        System.out.println("10. Delete post");
+        System.out.println("11. Show only headers");
+        System.out.println("12. Show access options");
+        System.out.print("Select an option: ");
+        try {
+            return scanner.nextInt();
+        } catch (Exception e) {
+            scanner.nextLine();
+            return 0;
+        }
     }
 
+    private void processOption(int selectedOption) {
+        switch (selectedOption) {
+            case 1:
+                showPostsSync();
+                break;
+            case 2:
+                showPostsWithCallback();
+                break;
+            case 3:
+                showPosts();
+                break;
+            case 4:
+                showPost(1);
+                break;
+            case 5:
+                showUserPosts(1);
+                break;
+            case 6:
+                showPostsByUser(1);
+                break;
+            case 7:
+                createPost(new PostResponse(1, 0, "Baldomero", "Llégate Ligero"));
+                break;
+            case 8:
+                updatePost(1, new PostResponse(1, 1, "Baldomero", "Llégate Ligero"));
+                break;
+            case 9:
+                patchPost(1, new PostResponse(3, 1, "Baldomero", "Llégate Ligero"));
+                break;
+            case 10:
+                deletePost(1);
+                break;
+            case 11:
+                showPostsHeaders();
+                break;
+            case 12:
+                showPostsAccessOptions();
+                break;
+        }
+    }
 
     private void showPostsSync() {
         try {
