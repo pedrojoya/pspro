@@ -1,21 +1,38 @@
 package es.iessaladillo.pedrojoya.httpurlconnection;
 
-import java.io.*;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.concurrent.CompletableFuture;
+import java.util.concurrent.Executor;
 
 public class HttpUtils {
 
     private HttpUtils() {
     }
 
-    public static void doHttpRequest(URL url, String requestMethod, Map<String, String> requestHeaders,
-                                     byte[] requestBody, int timeout) {
+    public static CompletableFuture<Void> doHttpRequestAsync(String urlString, String requestMethod, Map<String, String> requestHeaders,
+                                                             byte[] requestBody, int timeout) {
+        return CompletableFuture.runAsync(
+                () -> doHttpRequest(urlString, requestMethod, requestHeaders, requestBody, timeout));
+    }
+
+    public static CompletableFuture<Void> doHttpRequestAsync(String urlString, String requestMethod, Map<String, String> requestHeaders,
+                                                             byte[] requestBody, int timeout, Executor executor) {
+        return CompletableFuture.runAsync(
+                () -> doHttpRequest(urlString, requestMethod, requestHeaders, requestBody, timeout),
+                executor);
+    }
+
+    private static void doHttpRequest(String urlString, String requestMethod, Map<String, String> requestHeaders,
+                                      byte[] requestBody, int timeout) {
         HttpURLConnection httpUrlConnection = null;
         try {
+            URL url = new URL(urlString);
             // 1. Create connection with the URL.
             httpUrlConnection = (HttpURLConnection) url.openConnection();
             // 2. Setup request
@@ -65,8 +82,8 @@ public class HttpUtils {
                 System.out.println("\n" + readInputStream(httpUrlConnection.getInputStream()));
             }
         } catch (IOException e) {
-            // 5. Process failure.
-            System.out.println(e.toString());
+            // 5. Show error.
+            System.out.println(e.getMessage());
         } finally {
             // 6. Disconnect
             if (httpUrlConnection != null) {
@@ -76,10 +93,7 @@ public class HttpUtils {
     }
 
     private static String readInputStream(InputStream inputStream) throws IOException {
-        try (BufferedReader bufferedReader =
-                     new BufferedReader(new InputStreamReader(inputStream))) {
-            return bufferedReader.lines().collect(Collectors.joining("\n"));
-        }
+        return new String(inputStream.readAllBytes());
     }
 
 }

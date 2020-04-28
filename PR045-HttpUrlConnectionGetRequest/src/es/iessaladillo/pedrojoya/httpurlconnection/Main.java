@@ -1,26 +1,17 @@
 package es.iessaladillo.pedrojoya.httpurlconnection;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.Map;
 import java.util.Scanner;
 
 public class Main {
 
-    public static final int OPTION_EXIT = 10;
+    private static final int TIMEOUT_MILLIS = 5000;
 
     private final Scanner scanner = new Scanner(System.in);
 
     Main() {
-        int selectedOption;
-        do {
-            selectedOption = showMenu();
-            try {
-                processOption(selectedOption);
-            } catch (IOException e) {
-                System.out.println(e.getMessage());
-            }
-        } while (selectedOption != OPTION_EXIT);
+        int selectedOption = showMenu();
+        processOption(selectedOption);
     }
 
     public static void main(String[] args) {
@@ -38,7 +29,6 @@ public class Main {
         System.out.println("7. Delete post");
         System.out.println("8. Show only headers");
         System.out.println("9. Show access options");
-        System.out.println("10. Exit");
         System.out.print("Select an option: ");
         try {
             return scanner.nextInt();
@@ -48,7 +38,7 @@ public class Main {
         }
     }
 
-    private void processOption(int selectedOption) throws IOException {
+    private void processOption(int selectedOption) {
         switch (selectedOption) {
             case 1:
                 showPosts();
@@ -80,55 +70,60 @@ public class Main {
         }
     }
 
-    private void showPosts() throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts");
-        HttpUtils.doHttpRequest(url, "GET", null, null, 5000);
+    private void showPosts() {
+        HttpUtils.doHttpRequestAsync("https://jsonplaceholder.typicode.com/posts", "GET",
+                null, null, TIMEOUT_MILLIS).join();
     }
 
-    private static void showPost(int postId) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts/" + postId);
-        HttpUtils.doHttpRequest(url, "GET", null, null, 5000);
+    private void showPost(int postId) {
+        HttpUtils.doHttpRequestAsync("https://jsonplaceholder.typicode.com/posts/" + postId, "GET",
+                null, null, TIMEOUT_MILLIS).join();
     }
 
-    private static void createPost(String jsonPost) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts");
-        HttpUtils.doHttpRequest(url, "POST",
+    private void createPost(String jsonPost) {
+        HttpUtils.doHttpRequestAsync("https://jsonplaceholder.typicode.com/posts", "POST",
                 Map.of("Content-type", "application/json; charset=UTF-8"),
-                jsonPost.getBytes(), 5000);
+                jsonPost.getBytes(), TIMEOUT_MILLIS).join();
     }
 
-    private static void updatePost(int postId, String jsonPost) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts/" + postId);
-        HttpUtils.doHttpRequest(url, "PUT",
+    private void updatePost(int postId, String jsonPost) {
+        HttpUtils.doHttpRequestAsync("https://jsonplaceholder.typicode.com/posts/" + postId, "PUT",
                 Map.of("Content-type", "application/json; charset=UTF-8"),
-                jsonPost.getBytes(), 5000);
+                jsonPost.getBytes(), TIMEOUT_MILLIS).join();
     }
 
-    private static void patchPost(int postId, String jsonPost) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts/" + postId);
-        HttpUtils.doHttpRequest(url, "PATCH",
+    private void patchPost(int postId, String jsonPost) {
+        HttpUtils.doHttpRequestAsync("https://jsonplaceholder.typicode.com/posts/" + postId, "PATCH",
                 Map.of("Content-type", "application/json; charset=UTF-8"),
-                jsonPost.getBytes(), 5000);
+                jsonPost.getBytes(), TIMEOUT_MILLIS).join();
     }
 
-    private static void deletePost(int postId) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts/" + postId);
-        HttpUtils.doHttpRequest(url, "DELETE", null, null, 5000);
+    private void deletePost(int postId) {
+        HttpUtils.doHttpRequestAsync("https://jsonplaceholder.typicode.com/posts/" + postId, "DELETE",
+                null, null, TIMEOUT_MILLIS).join();
     }
 
-    private static void showUserPosts(int userId) throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/users/" + userId + "/posts");
-        HttpUtils.doHttpRequest(url, "GET", null, null, 5000);
+    private void showUserPosts(int userId) {
+        HttpUtils.doHttpRequestAsync("https://jsonplaceholder.typicode.com/users/" + userId + "/posts", "GET",
+                null, null, TIMEOUT_MILLIS).join();
     }
 
-    private static void showPostsHeaders() throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts");
-        HttpUtils.doHttpRequest(url, "HEAD", null, null, 5000);
+    private void showPostsHeaders() {
+        HttpUtils.doHttpRequestAsync("https://jsonplaceholder.typicode.com/posts", "HEAD",
+                null, null, TIMEOUT_MILLIS)
+                .exceptionally(this::showError)
+                .join();
     }
 
-    private static void showPostsAccessOptions() throws IOException {
-        URL url = new URL("https://jsonplaceholder.typicode.com/posts");
-        HttpUtils.doHttpRequest(url, "OPTIONS", null, null, 5000);
+    private void showPostsAccessOptions() {
+        HttpUtils.doHttpRequestAsync("https://jsonplaceholder.typicode.com/posts", "OPTIONS",
+                null, null, TIMEOUT_MILLIS).join();
     }
+
+    private Void showError(Throwable e) {
+        System.out.println(e.toString());
+        return null;
+    }
+
 
 }
