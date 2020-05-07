@@ -8,16 +8,16 @@ import javax.crypto.NoSuchPaddingException;
 import javax.xml.bind.DatatypeConverter;
 import java.security.InvalidKeyException;
 import java.security.KeyPair;
-import java.security.KeyPairGenerator;
 import java.security.NoSuchAlgorithmException;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
-class AsymmetricEncriptionUtilsTest {
+class AsymmetricEncryptionUtilsTest {
 
     @Test
     void generateRSAKeyPair() throws NoSuchAlgorithmException {
-        KeyPair keyPair = AsymmetricEncriptionUtils.generateRSAKeyPair();
+        KeyPair keyPair = AsymmetricEncryptionUtils.generateRSAKeyPair();
         assertNotNull(keyPair);
         System.out.println("Private key: " + DatatypeConverter.printHexBinary(keyPair.getPrivate().getEncoded()));
         System.out.println("Public key: " + DatatypeConverter.printHexBinary(keyPair.getPublic().getEncoded()));
@@ -25,12 +25,12 @@ class AsymmetricEncriptionUtilsTest {
 
     @Test
     void decryptWithRSA() throws NoSuchAlgorithmException, IllegalBlockSizeException, InvalidKeyException, BadPaddingException, NoSuchPaddingException {
-        KeyPair keyPair = AsymmetricEncriptionUtils.generateRSAKeyPair();
+        KeyPair keyPair = AsymmetricEncryptionUtils.generateRSAKeyPair();
         String plainText = "Baldomero Llégate Ligero";
-        byte[] cipherText = AsymmetricEncriptionUtils.encryptWithRSA(plainText, keyPair.getPrivate());
+        byte[] cipherText = AsymmetricEncryptionUtils.encryptWithRSA(plainText, keyPair.getPrivate());
         assertNotNull(cipherText);
         System.out.println(DatatypeConverter.printHexBinary(cipherText));
-        String decryptedText = AsymmetricEncriptionUtils.decryptWithRSA(cipherText, keyPair.getPublic());
+        String decryptedText = AsymmetricEncryptionUtils.decryptWithRSA(cipherText, keyPair.getPublic());
         assertEquals(plainText, decryptedText);
     }
 

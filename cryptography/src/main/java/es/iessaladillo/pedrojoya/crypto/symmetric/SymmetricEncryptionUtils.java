@@ -14,6 +14,9 @@ public class SymmetricEncryptionUtils {
     private static final int KEY_SIZE_IN_BITS = 256;
     private static final int INITIALIZATION_VECTOR_SIZE_IN_BITS = 16;
 
+    private SymmetricEncryptionUtils() {
+    }
+
     public static SecretKey createAESKey() throws NoSuchAlgorithmException {
         SecureRandom secureRandom = new SecureRandom();
         // Get an instance of a key generator for AES

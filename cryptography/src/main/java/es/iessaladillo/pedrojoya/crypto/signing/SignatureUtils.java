@@ -1,13 +1,12 @@
 package es.iessaladillo.pedrojoya.crypto.signing;
 
-import javax.xml.bind.DatatypeConverter;
 import java.security.*;
 
-public final class SignatureUtilities {
+public final class SignatureUtils {
 
     private static final String SIGNING_ALGORITHM = "SHA256withRSA";
 
-    private SignatureUtilities() {
+    private SignatureUtils() {
     }
 
     public static byte[] createDigitalSignature(byte[] bytesToSign, PrivateKey privateKey) throws InvalidKeyException, NoSuchAlgorithmException, SignatureException {

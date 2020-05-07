@@ -3,9 +3,9 @@ package es.iessaladillo.pedrojoya.crypto.hash;
 import org.junit.jupiter.api.Test;
 
 import javax.xml.bind.DatatypeConverter;
-
 import java.io.IOException;
 import java.security.NoSuchAlgorithmException;
+import java.util.Scanner;
 import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -36,6 +36,7 @@ class HashUtilsTest {
 
     @Test
     void hashPasswordAndVerify() {
+        Scanner scanner = new Scanner(System.in);
         String signUpPassword = "Baldomero Llégate Ligero";
         String hashedSignUpPassword = HashUtils.hashPassword(signUpPassword);
         assertNotNull(hashedSignUpPassword);

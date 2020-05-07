@@ -6,7 +6,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import java.security.*;
 
-public class AsymmetricEncriptionUtils {
+public class AsymmetricEncryptionUtils {
 
     private static final String RSA = "RSA";
     private static final int RSA_KEY_SIZE_IN_BITS = 4096;
