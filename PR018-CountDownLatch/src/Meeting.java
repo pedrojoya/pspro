@@ -1,34 +1,28 @@
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
-import java.util.concurrent.CountDownLatch;
 
-public class Meeting implements Runnable {
+public class Meeting {
 
-    private final CountDownLatch countDownLatch;
+    private final MeetingSession meetingSession;
     private final DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("HH:mm:ss");
 
-    public Meeting(int quorum) {
-        countDownLatch = new CountDownLatch(quorum);
+    public Meeting(MeetingSession meetingSession) {
+        this.meetingSession = meetingSession;
     }
 
-    @Override
-    public void run() {
-        System.out.printf("%s -> Waiting for quorum to start the meeting\n",
-                LocalTime.now().format(dateTimeFormatter));
-        try {
-            countDownLatch.await();
-            System.out.printf("%s -> We have quorum. Meeting started...\n",
-                    LocalTime.now().format(dateTimeFormatter));
-        } catch (InterruptedException e) {
-            System.out.println("Meeting has been interrupted while waiting to have quorum");
-        }
+    public void waitForItToStart() throws InterruptedException {
+        meetingSession.waitForItToStart();
+    }
+
+    public boolean isStarted() {
+        return meetingSession.isStarted();
     }
 
     public void join(int participants, String countryName) {
         System.out.printf("%s -> %d participants from %s have joined the meeting\n",
                 LocalTime.now().format(dateTimeFormatter), participants, countryName);
         for (int i = 0; i < participants; i++) {
-            countDownLatch.countDown();
+            meetingSession.join();
         }
     }
 
