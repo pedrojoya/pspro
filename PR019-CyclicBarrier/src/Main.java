@@ -12,8 +12,8 @@ public class Main {
             friends[i].start();
         }
         // Uncomment these line to see what happens if first friend is interrupted
-        Thread.sleep(8000);
-        friends[0].interrupt();
+        // Thread.sleep(8000);
+        // friends[0].interrupt();
     }
 
 }
