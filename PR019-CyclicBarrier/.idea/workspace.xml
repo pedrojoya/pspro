@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90196fd3-b392-4d9a-873a-acb7ac70d836" name="Default" comment="PR019-CyclicBarrier - Use Java 8 time api">
-      <change beforePath="$PROJECT_DIR$/../PR018-CountDownLatch/.idea/runConfigurations.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR018-CountDownLatch/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR018-CountDownLatch/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="90196fd3-b392-4d9a-873a-acb7ac70d836" name="Default" comment="PR019-CyclicBarrier - Use await with Timeout to break barrier if someone has finished execution">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Friend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Friend.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -98,7 +95,7 @@
       <option name="presentableId" value="Default" />
       <updated>1543836895316</updated>
       <workItem from="1587468287506" duration="845000" />
-      <workItem from="1667634362095" duration="4706000" />
+      <workItem from="1667634362095" duration="5022000" />
     </task>
     <task id="LOCAL-00001" summary="PR019-CyclicBarrier - Use Java 8 time api">
       <created>1587468494013</created>
@@ -107,7 +104,21 @@
       <option name="project" value="LOCAL" />
       <updated>1587468494013</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="PR019-CyclicBarrier - Use await with Timeout to break barrier if someone has finished execution">
+      <created>1667639152090</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1667639152090</updated>
+    </task>
+    <task id="LOCAL-00003" summary="PR019-CyclicBarrier - Use await with Timeout to break barrier if someone has finished execution">
+      <created>1667639193760</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1667639193760</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -128,7 +139,8 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="PR019-CyclicBarrier - Use Java 8 time api" />
-    <option name="LAST_COMMIT_MESSAGE" value="PR019-CyclicBarrier - Use Java 8 time api" />
+    <MESSAGE value="PR019-CyclicBarrier - Use await with Timeout to break barrier if someone has finished execution" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR019-CyclicBarrier - Use await with Timeout to break barrier if someone has finished execution" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
