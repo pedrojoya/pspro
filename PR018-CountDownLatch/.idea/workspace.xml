@@ -1,49 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9f3abb8-9d88-4b9d-8374-fb737c288a72" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/MeetingSession.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/President.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR018-CountDownLatch/Country.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR018-CountDownLatch/Country.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR018-CountDownLatch/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR018-CountDownLatch/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/PR018-CountDownLatch/Meeting.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR018-CountDownLatch/Meeting.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Country.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Country.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Meeting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR022-AtomicLong/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR022-AtomicLong/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/Account.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/Account.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/AccountConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/AccountConsumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/AccountSaver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/AccountSaver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/AtomicDouble.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/AtomicDouble.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/AtomicFloat.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/AtomicFloat.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR022-AtomicLong/out/production/PR022-AtomicLong/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR023-DoubleAdder/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR023-DoubleAdder/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR024-VarHandle/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR024-VarHandle/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR024-VarHandle/out/production/PR024-VarHandle/AccountConsumer.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR024-VarHandle/out/production/PR024-VarHandle/AccountConsumer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR024-VarHandle/out/production/PR024-VarHandle/AccountSaver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR024-VarHandle/out/production/PR024-VarHandle/AccountSaver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR024-VarHandle/out/production/PR024-VarHandle/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR024-VarHandle/out/production/PR024-VarHandle/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR025-ArrayBlockingQueue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR025-ArrayBlockingQueue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR026-LinkedTransferQueue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR026-LinkedTransferQueue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR027-SynchronousQueue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR027-SynchronousQueue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR028-DelayedQueue/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../PR028-DelayedQueue/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR028-DelayedQueue/out/production/PR028-DelayedQueue/Bakery.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR028-DelayedQueue/out/production/PR028-DelayedQueue/Bakery.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR031-FixedThreadPool/out/production/PR031-FixedThreadPool/es/iessaladillo/pedrojoya/fixedthreadpool/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR031-FixedThreadPool/out/production/PR031-FixedThreadPool/es/iessaladillo/pedrojoya/fixedthreadpool/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR031-FixedThreadPool/out/production/PR031-FixedThreadPool/es/iessaladillo/pedrojoya/fixedthreadpool/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR031-FixedThreadPool/out/production/PR031-FixedThreadPool/es/iessaladillo/pedrojoya/fixedthreadpool/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR031-FixedThreadPool/out/production/PR031-FixedThreadPool/es/iessaladillo/pedrojoya/fixedthreadpool/Task.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR031-FixedThreadPool/out/production/PR031-FixedThreadPool/es/iessaladillo/pedrojoya/fixedthreadpool/Task.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR035-RejectedExecutionHandler/out/production/PR035-RejectedExecutionHandler/es/iessaladillo/pedrojoya/rejectedexecutionhandler/Server$ServerThreadFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR035-RejectedExecutionHandler/out/production/PR035-RejectedExecutionHandler/es/iessaladillo/pedrojoya/rejectedexecutionhandler/Server$ServerThreadFactory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR035-RejectedExecutionHandler/out/production/PR035-RejectedExecutionHandler/es/iessaladillo/pedrojoya/rejectedexecutionhandler/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR035-RejectedExecutionHandler/out/production/PR035-RejectedExecutionHandler/es/iessaladillo/pedrojoya/rejectedexecutionhandler/Server.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR038-CancelPeriodicTask/out/production/PR038-CancelPeriodicTask/es/iessaladillo/pedrojoya/cancelperiodictask/GreetTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR038-CancelPeriodicTask/out/production/PR038-CancelPeriodicTask/es/iessaladillo/pedrojoya/cancelperiodictask/GreetTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR038-CancelPeriodicTask/out/production/PR038-CancelPeriodicTask/es/iessaladillo/pedrojoya/cancelperiodictask/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR038-CancelPeriodicTask/out/production/PR038-CancelPeriodicTask/es/iessaladillo/pedrojoya/cancelperiodictask/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR042-RecursiveTask/out/production/PR042-RecursiveTask/META-INF/PR042-RecursiveTask.kotlin_module" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR042-RecursiveTask/out/production/PR042-RecursiveTask/es/iessaladillo/pedrojoya/recursivetask/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR042-RecursiveTask/out/production/PR042-RecursiveTask/es/iessaladillo/pedrojoya/recursivetask/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR042-RecursiveTask/out/production/PR042-RecursiveTask/es/iessaladillo/pedrojoya/recursivetask/SumTask.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR042-RecursiveTask/out/production/PR042-RecursiveTask/es/iessaladillo/pedrojoya/recursivetask/SumTask.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR042-RecursiveTask/src/es/iessaladillo/pedrojoya/recursivetask/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PR042-RecursiveTask/src/es/iessaladillo/pedrojoya/recursivetask/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR042-RecursiveTask/src/es/iessaladillo/pedrojoya/recursivetask/SumTask.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PR042-RecursiveTask/src/es/iessaladillo/pedrojoya/recursivetask/SumTask.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR043-CompletableFuture/src/es/iessaladillo/pedrojoya/completablefuture/GetNowExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PR043-CompletableFuture/src/es/iessaladillo/pedrojoya/completablefuture/GetNowExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR043-CompletableFuture/src/es/iessaladillo/pedrojoya/completablefuture/JoinExample.java" beforeDir="false" afterPath="$PROJECT_DIR$/../PR043-CompletableFuture/src/es/iessaladillo/pedrojoya/completablefuture/JoinExample.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../PR047-HttpClient/out/production/PR047-HttpClient/es/iessaladillo/pedrojoya/httpclient/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/../PR047-HttpClient/out/production/PR047-HttpClient/es/iessaladillo/pedrojoya/httpclient/Main.class" afterDir="false" />
+    <list default="true" id="a9f3abb8-9d88-4b9d-8374-fb737c288a72" name="Default" comment="PR018-CountDownLatch - Use Java 8 time api">
+      <change beforePath="$PROJECT_DIR$/.idea/runConfigurations.xml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -75,14 +34,14 @@
     <option name="autoscrollToSource" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.CommitDialog" />
-  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "last_opened_file_path": "/Users/pedrojoya/GitHub/pspro/PR018-CountDownLatch"
+  }
+}]]></component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
       <recent name="" />
@@ -142,6 +101,7 @@
       <workItem from="1587463728701" duration="1720000" />
       <workItem from="1635939147340" duration="3749000" />
       <workItem from="1635946113123" duration="979000" />
+      <workItem from="1667634316269" duration="24000" />
     </task>
     <task id="LOCAL-00001" summary="PR018-CountDownLatch - Use Java 8 time api">
       <created>1587468257304</created>
@@ -155,6 +115,17 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />

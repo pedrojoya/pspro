@@ -1,10 +1,7 @@
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Objects;
-import java.util.concurrent.BrokenBarrierException;
-import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.ThreadLocalRandom;
-import java.util.concurrent.TimeUnit;
+import java.util.concurrent.*;
 
 public class Friend implements Runnable {
 
@@ -23,77 +20,94 @@ public class Friend implements Runnable {
     public void run() {
         try {
             goToPub();
-        } catch (InterruptedException e) {
-            System.out.printf("%s has been interrupted while going to the pub\n", name);
-            return;
-        }
-        try {
-            cyclicBarrier.await();
-        } catch (InterruptedException e) {
-            System.out.printf("%s has been interrupted while waiting for friends in the pub\n", name);
-            return;
-        } catch (BrokenBarrierException e) {
-            System.out.printf("%s doesn't wait any more for friends in the pub because someone isn't coming\n", name);
-        }
-        try {
             firstBeerInPub();
-        } catch (InterruptedException e) {
-            System.out.printf("%s has been interrupted while drinking the first beer\n", name);
-            return;
-        }
-        try {
-            cyclicBarrier.await();
-        } catch (InterruptedException e) {
-            System.out.printf("%s has been interrupted while waiting for friends to finish their fist beer\n", name);
-            return;
-        } catch (BrokenBarrierException e) {
-            System.out.printf("%s doesn't wait any more for friends to finish their first beer because someone isn't going to finish it\n", name);
-        }
-        try {
             secondBeerInPub();
-        } catch (InterruptedException e) {
-            System.out.printf("%s has been interrupted while drinking the second beer\n", name);
-            return;
-        }
-        try {
-            cyclicBarrier.await();
-        } catch (InterruptedException e) {
-            System.out.printf("%s has been interrupted while waiting for friends to finish their second beer\n", name);
-            return;
-        } catch (BrokenBarrierException e) {
-            System.out.printf("%s doesn't wait any more for friends to finish their second beer because someone isn't going to finish it\n", name);
-        }
-        try {
             goHome();
-        } catch (InterruptedException e) {
-            System.out.printf("%s has been interrupted while going back home\n", name);
+        } catch (InterruptedException | BrokenBarrierException | TimeoutException ignored) {
+            System.out.printf("%s finishing\n", name);
         }
     }
 
-    private void goToPub() throws InterruptedException {
+    private void goToPub() throws InterruptedException, BrokenBarrierException, TimeoutException {
         System.out.printf("%s -> %s is leaving home\n",
                 LocalTime.now().format(dateTimeFormatter), name);
-        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
+        try {
+            TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
+        } catch (InterruptedException e) {
+            System.out.printf("%s has been interrupted while going to the pub\n", name);
+            throw e;
+        }
         System.out.printf("%s -> %s has arrived in the pub\n",
                 LocalTime.now().format(dateTimeFormatter), name);
+        try {
+            cyclicBarrier.await(10, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            System.out.printf("%s has been interrupted while waiting for friends in the pub\n", name);
+            throw e;
+        } catch (BrokenBarrierException e) {
+            System.out.printf("%s detects plan is over when arrived to pub\n", name);
+            throw e;
+        } catch (TimeoutException e) {
+            System.out.printf("%s is tired of waiting for the resto to arrive in the pub\n", name);
+            throw e;
+        }
     }
 
-    private void firstBeerInPub() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
+    private void firstBeerInPub() throws InterruptedException, BrokenBarrierException, TimeoutException {
+        try {
+            TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
+        } catch (InterruptedException e) {
+            System.out.printf("%s has been interrupted while drinking the first beer\n", name);
+            throw e;
+        }
         System.out.printf("%s -> %s has finished the first beer\n",
                 LocalTime.now().format(dateTimeFormatter), name);
+        try {
+            cyclicBarrier.await(10, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            System.out.printf("%s has been interrupted while waiting for friends to finish their fist beer\n", name);
+            throw e;
+        } catch (BrokenBarrierException e) {
+            System.out.printf("%s detects plan is over when finished first beer\n", name);
+            throw e;
+        } catch (TimeoutException e) {
+            System.out.printf("%s is tired of waiting for the rest to finish first beer\n", name);
+            throw e;
+        }
     }
 
-    private void secondBeerInPub() throws InterruptedException {
-        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
+    private void secondBeerInPub() throws InterruptedException, BrokenBarrierException, TimeoutException {
+        try {
+            TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
+        } catch (InterruptedException e) {
+            System.out.printf("%s has been interrupted while drinking the second beer\n", name);
+            throw e;
+        }
         System.out.printf("%s -> %s has finished the first beer\n",
                 LocalTime.now().format(dateTimeFormatter), name);
+        try {
+            cyclicBarrier.await(10, TimeUnit.SECONDS);
+        } catch (InterruptedException e) {
+            System.out.printf("%s has been interrupted while waiting for friends to finish their second beer\n", name);
+            throw e;
+        } catch (BrokenBarrierException e) {
+            System.out.printf("%s detects plan is over when finished second beer\n", name);
+            throw e;
+        } catch (TimeoutException e) {
+            System.out.printf("%s is tired of waiting for the rest to finish second beer\n", name);
+            throw e;
+        }
     }
 
     private void goHome() throws InterruptedException {
         System.out.printf("%s -> %s is leaving the pub\n",
                 LocalTime.now().format(dateTimeFormatter), name);
-        TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
+        try {
+            TimeUnit.SECONDS.sleep(ThreadLocalRandom.current().nextInt(5) + 1);
+        } catch (InterruptedException e) {
+            System.out.printf("%s has been interrupted while going back home\n", name);
+            throw e;
+        }
         System.out.printf("%s -> %s is at home\n",
                 LocalTime.now().format(dateTimeFormatter), name);
     }
