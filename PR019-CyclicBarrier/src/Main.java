@@ -11,7 +11,7 @@ public class Main {
             friends[i] = new Thread(new Friend("Friend #" + i, cyclicBarrier), "Friend #" + i);
             friends[i].start();
         }
-        // Uncomment these line to see what happens if first friend is interrupted
+        // Uncomment these lines to see what happens if first friend is interrupted
         // Thread.sleep(8000);
         // friends[0].interrupt();
     }

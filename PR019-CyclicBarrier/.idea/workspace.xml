@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="90196fd3-b392-4d9a-873a-acb7ac70d836" name="Default" comment="PR019-CyclicBarrier - Comment interruption of first friend">
+    <list default="true" id="90196fd3-b392-4d9a-873a-acb7ac70d836" name="Default" comment="PR019-CyclicBarrier - Comment first friend interruption">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PR019-CyclicBarrier/Friend.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR019-CyclicBarrier/Friend.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/PR019-CyclicBarrier/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR019-CyclicBarrier/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Friend.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Friend.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/PR019-CyclicBarrier/OpenedBarrierAction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/PR019-CyclicBarrier/OpenedBarrierAction.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +24,11 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
+  <component name="HighlightingSettingsPerFile">
+    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-17.0.3/Contents/Home/lib/src.zip!/java.base/java/lang/Thread.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-17.0.3/Contents/Home/lib/src.zip!/java.base/java/util/concurrent/TimeUnit.java" root0="SKIP_INSPECTION" />
+    <setting file="jar://$USER_HOME$/Library/Java/JavaVirtualMachines/corretto-17.0.3/Contents/Home/lib/src.zip!/java.base/java/util/concurrent/locks/ReentrantLock.java" root0="SKIP_INSPECTION" />
+  </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -38,7 +44,8 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/Users/pedrojoya/GitHub/pspro/PR019-CyclicBarrier"
+    "last_opened_file_path": "/Users/pedrojoya/GitHub/pspro/PR019-CyclicBarrier",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -98,7 +105,8 @@
       <option name="presentableId" value="Default" />
       <updated>1543836895316</updated>
       <workItem from="1587468287506" duration="845000" />
-      <workItem from="1667634362095" duration="10438000" />
+      <workItem from="1667634362095" duration="13578000" />
+      <workItem from="1667813419836" duration="2210000" />
     </task>
     <task id="LOCAL-00001" summary="PR019-CyclicBarrier - Use Java 8 time api">
       <created>1587468494013</created>
@@ -128,7 +136,21 @@
       <option name="project" value="LOCAL" />
       <updated>1667639458546</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="PR019-CyclicBarrier - Break barrier when interrupted before await()">
+      <created>1667667586255</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1667667586255</updated>
+    </task>
+    <task id="LOCAL-00006" summary="PR019-CyclicBarrier - Comment first friend interruption">
+      <created>1667669532470</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1667669532470</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -151,10 +173,16 @@
     <MESSAGE value="PR019-CyclicBarrier - Use Java 8 time api" />
     <MESSAGE value="PR019-CyclicBarrier - Use await with Timeout to break barrier if someone has finished execution" />
     <MESSAGE value="PR019-CyclicBarrier - Comment interruption of first friend" />
-    <option name="LAST_COMMIT_MESSAGE" value="PR019-CyclicBarrier - Comment interruption of first friend" />
+    <MESSAGE value="PR019-CyclicBarrier - Break barrier when interrupted before await()" />
+    <MESSAGE value="PR019-CyclicBarrier - Comment first friend interruption" />
+    <option name="LAST_COMMIT_MESSAGE" value="PR019-CyclicBarrier - Comment first friend interruption" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="masterDetails">
     <states>
