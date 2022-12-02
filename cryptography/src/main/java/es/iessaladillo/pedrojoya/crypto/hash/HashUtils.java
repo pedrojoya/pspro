@@ -16,7 +16,7 @@ public final class HashUtils {
     private HashUtils() {
     }
 
-    public static byte[] generateRandomSalt() {
+    public static byte[] generateSHA256RandomSalt() {
         // Create a 16 bytes array for salt.
         byte[] salt = new byte[SHA_256_SALT_SIZE_IN_BYTES];
         // Fill the salt with secure random data and return it.
@@ -43,12 +43,12 @@ public final class HashUtils {
         return messageDigest.digest(input.getBytes());
     }
 
-    public static String hashPassword(String password) {
+    public static String BCryptHashPassword(String password) {
         // The salt is stored with the result string.
         return BCrypt.hashpw(password, BCrypt.gensalt());
     }
 
-    public static boolean verifyPassword(String password, String hashedPassword) {
+    public static boolean BCryptVerifyPassword(String password, String hashedPassword) {
         return BCrypt.checkpw(password, hashedPassword);
     }
 
@@ -58,6 +58,5 @@ public final class HashUtils {
         byteArrayOutputStream.write(input.getBytes());
         return byteArrayOutputStream.toByteArray();
     }
-
 
 }
